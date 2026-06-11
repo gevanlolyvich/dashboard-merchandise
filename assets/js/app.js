@@ -119,7 +119,8 @@ function updateChartTheme(dark) {
 
 (function initTheme() {
     const saved = localStorage.getItem('theme');
-    const dark = saved !== null ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Default SELALU light — hanya dark kalau user pernah aktifkan dark mode
+    const dark = saved === 'dark';
     if (dark) document.documentElement.classList.add('dark');
     _applyThemeIcons(dark);
 })();
