@@ -1,5 +1,5 @@
 <?php
-$allowedOrigins = ['http://127.0.0.1:5500', 'http://localhost:5500', 'http://localhost', 'http://127.0.0.1'];
+$allowedOrigins = ['http://127.0.0.1:5500', 'http://localhost:5500', 'http://localhost', 'http://127.0.0.1', 'http://localhost:8000', 'http://127.0.0.1:8000'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowedOrigins)) {
   header("Access-Control-Allow-Origin: $origin");
@@ -15,10 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
   exit;
 }
 
-$host = 'localhost';
+$host = '172.16.0.18';
 $dbname = 'dashboard_merchandise';
-$username = 'root';
-$password = '';
+$username = 'jxbdev';
+$password = 'DeptIT2022;';
 
 try {
   $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);

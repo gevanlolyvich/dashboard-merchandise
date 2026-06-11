@@ -1,7 +1,11 @@
 <?php
 session_start();
 
-define('BASE_URL', '/dashboard-merchandise');
+if (php_sapi_name() === 'cli-server') {
+    define('BASE_URL', '');
+} else {
+    define('BASE_URL', '/dashboard-merchandise');
+}
 
 // --- Clean URL Routing ---
 $url = isset($_GET['url']) ? trim($_GET['url'], '/') : '';
