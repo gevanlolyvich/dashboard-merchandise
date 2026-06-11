@@ -6,12 +6,12 @@ const products = [
     { name: 'Jaket', qty: 500, omzet: 150000000, category: 'Apparel', stock: 80 },
     { name: 'Topi', qty: 450, omzet: 36000000, category: 'Apparel', stock: 120 },
     { name: 'Mug', qty: 400, omzet: 32000000, category: 'Drinkware', stock: 250 },
-    { name: 'Stiker', qty: 380, omzet: 7600000, category: 'Accesories', stock: 500 },
-    { name: 'Gantungan Kunci', qty: 350, omzet: 7000000, category: 'Accesories', stock: 400 },
-    { name: 'Notebook', qty: 300, omzet: 15000000, category: 'Accesories', stock: 180 },
-    { name: 'Payung', qty: 280, omzet: 28000000, category: 'Accesories', stock: 90 },
+    { name: 'Stiker', qty: 380, omzet: 7600000, category: 'Aksesoris', stock: 500 },
+    { name: 'Gantungan Kunci', qty: 350, omzet: 7000000, category: 'Aksesoris', stock: 400 },
+    { name: 'Notebook', qty: 300, omzet: 15000000, category: 'Aksesoris', stock: 180 },
+    { name: 'Payung', qty: 280, omzet: 28000000, category: 'Aksesoris', stock: 90 },
     { name: 'Syal', qty: 200, omzet: 20000000, category: 'Apparel', stock: 60 },
-    { name: 'Bantal Leher', qty: 150, omzet: 22500000, category: 'Accesories', stock: 40 }
+    { name: 'Bantal Leher', qty: 150, omzet: 22500000, category: 'Aksesoris', stock: 40 }
 ];
 const opdData = [
     { name: 'Dinas Pariwisata', omzet: 150000000, order: 30 },
@@ -44,69 +44,95 @@ function fmtIDR(n) {
 }
 function fmtNum(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
 
+// ===== CHART GLOBAL DEFAULTS =====
+Chart.defaults.font.family = "'Inter', ui-sans-serif, system-ui, sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.plugins.tooltip.padding = 10;
+Chart.defaults.plugins.tooltip.cornerRadius = 8;
+Chart.defaults.plugins.tooltip.displayColors = true;
+Chart.defaults.plugins.tooltip.boxPadding = 4;
+Chart.defaults.animation.duration = 600;
+Chart.defaults.animation.easing = 'easeInOutQuart';
+
 // ===== DARK MODE =====
 let charts = {};
 
-function toggleDark() {
-    const h = document.documentElement;
-    const isDark = h.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    const btn = document.querySelector('.shell-btn');
-    if (btn) btn.textContent = isDark ? '☀️' : '🌙';
-    updateChartTheme(isDark);
+function isDark() { return document.documentElement.classList.contains('dark'); }
+function gc() { return isDark() ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'; }
+function tc() { return isDark() ? '#9CA3AF' : '#6B7280'; }
+function pb() { return isDark() ? '#1D2030' : '#fff'; }
+
+function getTooltipStyle() {
+    return {
+        backgroundColor: isDark() ? '#252836' : '#0F1117',
+        titleColor: '#F9FAFB',
+        bodyColor: '#D1D5DB',
+        borderColor: isDark() ? '#2E3347' : '#252836',
+        borderWidth: 1,
+    };
 }
 
-function updateChartTheme(isDark) {
-    if (Object.keys(charts).length === 0) return;
-    const gc = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)';
-    const tc = isDark ? '#B9B3AC' : '#797067';
-    const pb = isDark ? '#4A423A' : '#fff';
+function toggleDark() {
+    const h = document.documentElement;
+    const dark = h.classList.toggle('dark');
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    _applyThemeIcons(dark);
+    updateChartTheme(dark);
+}
+
+function _applyThemeIcons(dark) {
+    const moon = document.getElementById('themeIconMoon');
+    const sun  = document.getElementById('themeIconSun');
+    if (moon) moon.style.display = dark ? 'none' : '';
+    if (sun)  sun.style.display  = dark ? '' : 'none';
+}
+
+function updateChartTheme(dark) {
+    if (!Object.keys(charts).length) return;
+    const grid = gc(), text = tc(), pointBg = pb();
+    const tt = getTooltipStyle();
     Object.values(charts).forEach(c => {
         if (!c) return;
+        if (c.options.plugins?.tooltip) Object.assign(c.options.plugins.tooltip, tt);
         if (c.options.scales) {
             Object.values(c.options.scales).forEach(s => {
-                if (s.grid) s.grid.color = gc;
-                if (s.ticks) s.ticks.color = tc;
+                if (s.grid) s.grid.color = grid;
+                if (s.ticks) s.ticks.color = text;
             });
         }
-        if (c.options.plugins?.legend?.labels) c.options.plugins.legend.labels.color = tc;
-        if (c.options.plugins?.title) c.options.plugins.title.color = tc;
+        if (c.options.plugins?.legend?.labels) c.options.plugins.legend.labels.color = text;
         if (c.data?.datasets) {
             c.data.datasets.forEach(ds => {
                 if (ds.fill && ds.backgroundColor && ds.backgroundColor.addColorStop) {
-                    ds.backgroundColor = c.ctx.createLinearGradient(0, 0, 0, 320);
-                    ds.backgroundColor.addColorStop(0, isDark ? 'rgba(254,110,0,0.08)' : 'rgba(254,110,0,0.08)');
-                    ds.backgroundColor.addColorStop(1, 'rgba(254,110,0,0)');
+                    const grad = c.ctx.createLinearGradient(0, 0, 0, c.canvas.height);
+                    grad.addColorStop(0, dark ? 'rgba(249,115,22,0.15)' : 'rgba(249,115,22,0.12)');
+                    grad.addColorStop(0.7, 'rgba(249,115,22,0.02)');
+                    grad.addColorStop(1, 'rgba(249,115,22,0)');
+                    ds.backgroundColor = grad;
                 }
-                ds.pointBorderColor = pb;
+                if (ds.pointBorderColor !== undefined) ds.pointBorderColor = pointBg;
             });
         }
-        c.update();
+        c.update('none');
     });
 }
 
 (function initTheme() {
     const saved = localStorage.getItem('theme');
-    const isDark = saved !== null ? saved === 'dark' : false;
-    if (isDark) {
-        document.documentElement.classList.add('dark');
-        const btn = document.querySelector('.shell-btn');
-        if (btn) btn.textContent = '☀️';
-    }
+    const dark = saved !== null ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (dark) document.documentElement.classList.add('dark');
+    _applyThemeIcons(dark);
 })();
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     if (!localStorage.getItem('theme')) {
         document.documentElement.classList.toggle('dark', e.matches);
-        const btn = document.querySelector('.shell-btn');
-        if (btn) btn.textContent = e.matches ? '☀️' : '🌙';
+        _applyThemeIcons(e.matches);
         if (Object.keys(charts).length) updateChartTheme(e.matches);
     }
 });
 
 // ===== LOGIN (PHP Backend) =====
-// API_BASE is now defined in the page head via BASE_URL
-
 function doLogin() {
     const username = document.getElementById('loginUser').value.trim();
     const password = document.getElementById('loginPass').value.trim();
@@ -114,10 +140,7 @@ function doLogin() {
     if (errEl) errEl.classList.remove('show');
 
     if (!username || !password) {
-        if (errEl) {
-            errEl.textContent = 'Username dan password wajib diisi';
-            errEl.classList.add('show');
-        }
+        if (errEl) { errEl.textContent = 'Username dan password wajib diisi'; errEl.classList.add('show'); }
         return;
     }
 
@@ -129,10 +152,7 @@ function doLogin() {
         .then(r => r.json())
         .then(data => {
             if (data.error) {
-                if (errEl) {
-                    errEl.textContent = data.error;
-                    errEl.classList.add('show');
-                }
+                if (errEl) { errEl.textContent = data.error; errEl.classList.add('show'); }
                 return;
             }
             applyRole(data.user.role, data.user.display_name, data.user.username);
@@ -142,31 +162,26 @@ function doLogin() {
             window.location.href = BASE_URL + '/summary';
         })
         .catch(() => {
-            if (errEl) {
-                errEl.textContent = 'Gagal terhubung ke server';
-                errEl.classList.add('show');
-            }
+            if (errEl) { errEl.textContent = 'Gagal terhubung ke server'; errEl.classList.add('show'); }
         });
 }
 
 function doLogout() {
     fetch(`${API_BASE}/logout.php`, { credentials: 'include' })
-        .then(() => {
-            window.location.href = BASE_URL + '/';
-        });
+        .then(() => { window.location.href = BASE_URL + '/'; });
 }
 
 function applyRole(role, displayName, username) {
-    const badge = document.getElementById('userBadge');
-    const logoutBtn = document.getElementById('logoutBtn');
-    const avatar = document.getElementById('userAvatar');
+    const badge    = document.getElementById('userBadge');
+    const logoutBtn= document.getElementById('logoutBtn');
+    const avatar   = document.getElementById('userAvatar');
     const userName = document.getElementById('userName');
     const userRole = document.getElementById('userRole');
-    if (badge) badge.style.display = 'flex';
-    if (logoutBtn) logoutBtn.style.display = 'inline-block';
-    if (avatar) avatar.textContent = (username.charAt(0) || 'A').toUpperCase();
-    if (userName) userName.textContent = displayName;
-    if (userRole) userRole.textContent =
+    if (badge)     badge.style.display = 'flex';
+    if (logoutBtn) logoutBtn.style.display = 'inline-flex';
+    if (avatar)    avatar.textContent = (username.charAt(0) || 'A').toUpperCase();
+    if (userName)  userName.textContent = displayName;
+    if (userRole)  userRole.textContent =
         role === 'superadmin' ? 'Superadmin' : role === 'admin' ? 'Admin' : 'User';
 }
 
@@ -181,55 +196,81 @@ function applyRole(role, displayName, username) {
                 document.documentElement.dataset.loggedIn = 'true';
             }
         })
-        .catch(() => { });
+        .catch(() => {});
 })();
 
 const headerDate = document.getElementById('headerDate');
 if (headerDate) {
-    headerDate.textContent =
-        new Date().toLocaleDateString('id-ID', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
+    headerDate.textContent = new Date().toLocaleDateString('id-ID', {
+        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'
+    });
 }
 
 // ===== RENDER =====
 function renderProducts() {
-    const topQtyList = document.getElementById('topQtyList');
-    const topOmzetList = document.getElementById('topOmzetList');
+    const topQtyList     = document.getElementById('topQtyList');
+    const topOmzetList   = document.getElementById('topOmzetList');
     const slowMovingList = document.getElementById('slowMovingList');
-    if (!topQtyList || !topOmzetList || !slowMovingList) return;
+    const summaryList    = document.getElementById('summaryProductList');
 
-    const byQty = [...products].sort((a, b) => b.qty - a.qty).slice(0, 10);
-    const maxQ = byQty[0].qty;
+    const byQty   = [...products].sort((a, b) => b.qty - a.qty).slice(0, 10);
     const byOmzet = [...products].sort((a, b) => b.omzet - a.omzet).slice(0, 10);
-    const maxO = byOmzet[0].omzet;
-    const slow = products.filter(p => p.stock > 100 && p.qty < 300);
+    const slow    = products.filter(p => p.stock > 100 && p.qty < 300);
 
-    topQtyList.innerHTML = byQty.map(p =>
-        `<div class="product-row"><div class="info"><div class="name">${p.name}</div><div class="bar-wrap"><div class="bar-fill" style="width:${p.qty / maxQ * 100}%"></div></div></div><div class="value">${fmtNum(p.qty)}</div></div>`
+    const productRowHtml = (list, maxKey, fillClass) => list.map(p =>
+        `<div class="product-row">
+            <div class="info">
+                <div class="name">${p.name}</div>
+                <div class="bar-wrap"><div class="bar-fill ${fillClass}" style="width:${p[maxKey] / list[0][maxKey] * 100}%"></div></div>
+            </div>
+            <div class="value">${maxKey === 'qty' ? fmtNum(p.qty) : fmtIDR(p.omzet)}</div>
+        </div>`
     ).join('');
-    topOmzetList.innerHTML = byOmzet.map(p =>
-        `<div class="product-row"><div class="info"><div class="name">${p.name}</div><div class="bar-wrap"><div class="bar-fill amber" style="width:${p.omzet / maxO * 100}%"></div></div></div><div class="value">${fmtIDR(p.omzet)}</div></div>`
-    ).join('');
-    slowMovingList.innerHTML = slow.map(p =>
-        `<div class="slow-item"><div><div class="name">${p.name}</div><div class="detail">Penjualan: ${fmtNum(p.qty)} &middot; Stok: ${fmtNum(p.stock)}</div></div><div class="stock-val">${fmtNum(p.stock)}</div></div>`
-    ).join('');
+
+    if (topQtyList)     topQtyList.innerHTML   = productRowHtml(byQty, 'qty', '');
+    if (topOmzetList)   topOmzetList.innerHTML = productRowHtml(byOmzet, 'omzet', 'amber');
+    if (summaryList)    summaryList.innerHTML  = productRowHtml(byQty.slice(0, 5), 'qty', '');
+
+    if (slowMovingList) {
+        slowMovingList.innerHTML = slow.map(p =>
+            `<div class="slow-item">
+                <div><div class="name">${p.name}</div><div class="detail">Terjual: ${fmtNum(p.qty)} &middot; Stok: ${fmtNum(p.stock)}</div></div>
+                <div class="stock-val">${fmtNum(p.stock)}</div>
+            </div>`
+        ).join('');
+    }
 }
 
 function renderCustomers() {
-    const opdRanking = document.getElementById('opdRanking');
-    const divisiList = document.getElementById('divisiList');
-    if (!opdRanking || !divisiList) return;
+    const opdRanking    = document.getElementById('opdRanking');
+    const divisiList    = document.getElementById('divisiList');
+    const summaryOpd    = document.getElementById('summaryOpdList');
 
-    const sorted = [...opdData].sort((a, b) => b.omzet - a.omzet);
+    const sorted  = [...opdData].sort((a, b) => b.omzet - a.omzet);
     const avClass = i => i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-    opdRanking.innerHTML = sorted.map((o, i) =>
-        `<div class="cust-row"><div class="avatar ${avClass(i)}">${i + 1}</div><div class="info"><div class="name">${o.name}</div><div class="sub">${fmtNum(o.order)} order</div></div><div class="amount">${fmtIDR(o.omzet)}</div></div>`
+
+    const opdRowHtml = (list) => list.map((o, i) =>
+        `<div class="cust-row">
+            <div class="avatar ${avClass(i)}">${i + 1}</div>
+            <div class="info"><div class="name">${o.name}</div><div class="sub">${fmtNum(o.order)} order</div></div>
+            <div class="amount">${fmtIDR(o.omzet)}</div>
+        </div>`
     ).join('');
 
-    const sd = [...divisiData].sort((a, b) => b.count - a.count);
-    const mc = sd[0].count;
-    divisiList.innerHTML = sd.map(d =>
-        `<div class="product-row" style="padding:5px 8px;"><div class="info"><div class="name">${d.name}</div><div class="bar-wrap"><div class="bar-fill blue" style="width:${d.count / mc * 100}%"></div></div></div><div class="value" style="font-size:0.8125rem;">${fmtNum(d.count)}</div></div>`
-    ).join('');
+    if (opdRanking) opdRanking.innerHTML = opdRowHtml(sorted);
+    if (summaryOpd) summaryOpd.innerHTML = opdRowHtml(sorted.slice(0, 4));
+
+    if (divisiList) {
+        const sd = [...divisiData].sort((a, b) => b.count - a.count);
+        const mc = sd[0].count;
+        divisiList.innerHTML = sd.map(d =>
+            `<div class="product-row">
+                <div class="info"><div class="name">${d.name}</div>
+                <div class="bar-wrap"><div class="bar-fill blue" style="width:${d.count / mc * 100}%"></div></div></div>
+                <div class="value">${fmtNum(d.count)}</div>
+            </div>`
+        ).join('');
+    }
 }
 
 function renderInventory() {
@@ -237,87 +278,330 @@ function renderInventory() {
     if (!reorderGrid) return;
     const alerts = products.filter(p => p.stock > 0 && p.stock <= 80).sort((a, b) => a.stock - b.stock);
     reorderGrid.innerHTML = alerts.map(a =>
-        `<div class="inv-card ${a.stock <= 50 ? 'out' : 'low'}"><div class="name">${a.name}</div><div class="stock-num">${fmtNum(a.stock)}</div><div class="status-label">${a.stock <= 50 ? 'Habis' : 'Menipis'}</div></div>`
+        `<div class="inv-card ${a.stock <= 50 ? 'out' : 'low'}">
+            <div class="name">${a.name}</div>
+            <div class="stock-num">${fmtNum(a.stock)}</div>
+            <div class="status-label">${a.stock <= 50 ? 'Habis' : 'Menipis'}</div>
+        </div>`
     ).join('');
 }
 
 // ===== CHARTS =====
-function isDark() { return document.documentElement.classList.contains('dark'); }
-function gc() { return isDark() ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)'; }
-function tc() { return isDark() ? '#B9B3AC' : '#797067'; }
-function pb() { return isDark() ? '#4A423A' : '#fff'; }
+function makeGradient(ctx, h, color, alphaTop = 0.18, alphaBot = 0) {
+    const grad = ctx.createLinearGradient(0, 0, 0, h);
+    grad.addColorStop(0,   color.replace(')', `,${alphaTop})`).replace('rgb', 'rgba'));
+    grad.addColorStop(0.7, color.replace(')', `,${alphaBot + 0.02})`).replace('rgb', 'rgba'));
+    grad.addColorStop(1,   color.replace(')', `,${alphaBot})`).replace('rgb', 'rgba'));
+    return grad;
+}
+
+function sharedScaleOpts() {
+    return {
+        y: {
+            beginAtZero: true,
+            grid: { color: gc(), drawBorder: false },
+            ticks: { color: tc(), font: { size: 11, weight: '500' }, padding: 6 },
+            border: { display: false }
+        },
+        x: {
+            grid: { display: false },
+            ticks: { color: tc(), font: { size: 11, weight: '500' }, padding: 4 },
+            border: { display: false }
+        }
+    };
+}
+
+function sharedTooltip() {
+    return {
+        ...getTooltipStyle(),
+        padding: 10,
+        cornerRadius: 8,
+        boxPadding: 4,
+        titleFont: { size: 12, weight: '700' },
+        bodyFont: { size: 12 },
+        callbacks: {}
+    };
+}
 
 function initCharts() {
+    // ---- SUMMARY PAGE CHARTS ----
+    const summaryTrend   = document.getElementById('summaryTrendChart');
+    const summaryChannel = document.getElementById('summaryChannelDonut');
+    const summaryKat     = document.getElementById('summaryKategoriBar');
+
+    // ---- OTHER PAGE CHARTS ----
     const channelDonut = document.getElementById('channelDonut');
-    const kategoriBar = document.getElementById('kategoriBar');
-    const opdChart = document.getElementById('opdChart');
-    const trendChart = document.getElementById('trendChart');
-    const mkpOrderChart = document.getElementById('mkpOrderChart');
-    const mkpOmzetChart = document.getElementById('mkpOmzetChart');
+    const kategoriBar  = document.getElementById('kategoriBar');
+    const opdChart     = document.getElementById('opdChart');
+    const trendChart   = document.getElementById('trendChart');
+    const mkpOrderChart= document.getElementById('mkpOrderChart');
+    const mkpOmzetChart= document.getElementById('mkpOmzetChart');
 
-    const grid = gc(), text = tc(), pointB = pb();
+    const grid = gc(), text = tc(), pointBg = pb();
+    const tt = sharedTooltip();
 
-    if (channelDonut) {
-        const c1 = channelDonut.getContext('2d');
-        charts.channel = new Chart(c1, {
-            type: 'doughnut',
-            data: { labels: ['OPD Jakarta', 'Karyawan', 'Marketplace'], datasets: [{ data: [60, 25, 15], backgroundColor: ['#FE6E00', '#423D38', '#3080FF'], borderWidth: 0 }] },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, font: { size: 12, weight: '600' }, color: text } } }, cutout: '65%' }
+    // ---- Summary Trend (big line chart) ----
+    if (summaryTrend) {
+        const ctx = summaryTrend.getContext('2d');
+        const h   = summaryTrend.parentElement.offsetHeight || 300;
+        const grad = ctx.createLinearGradient(0, 0, 0, h);
+        grad.addColorStop(0,   'rgba(249,115,22,0.18)');
+        grad.addColorStop(0.65,'rgba(249,115,22,0.04)');
+        grad.addColorStop(1,   'rgba(249,115,22,0)');
+
+        charts.summaryTrend = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: monthlyData.map(m => m.month),
+                datasets: [{
+                    label: 'Penjualan (Rp juta)',
+                    data: monthlyData.map(m => m.value / 1e6),
+                    borderColor: '#F97316',
+                    backgroundColor: grad,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#F97316',
+                    pointBorderColor: pointBg,
+                    pointBorderWidth: 2.5,
+                    pointRadius: 4,
+                    pointHoverRadius: 7,
+                    pointHoverBorderWidth: 2,
+                    borderWidth: 2.5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { intersect: false, mode: 'index' },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        ...tt,
+                        callbacks: {
+                            label: ctx => ` Rp ${ctx.parsed.y.toFixed(0)} juta`
+                        }
+                    }
+                },
+                scales: {
+                    ...sharedScaleOpts(),
+                    y: {
+                        ...sharedScaleOpts().y,
+                        ticks: {
+                            ...sharedScaleOpts().y.ticks,
+                            callback: v => 'Rp ' + v + ' jt'
+                        }
+                    }
+                }
+            }
         });
     }
 
+    // ---- Summary Channel Donut ----
+    if (summaryChannel) {
+        const ctx = summaryChannel.getContext('2d');
+        charts.summaryChannel = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['OPD Jakarta', 'Karyawan', 'Marketplace'],
+                datasets: [{
+                    data: [60, 25, 15],
+                    backgroundColor: ['#F97316', '#3B82F6', '#10B981'],
+                    borderWidth: 0,
+                    hoverOffset: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '68%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 16,
+                            usePointStyle: true,
+                            pointStyleWidth: 8,
+                            font: { size: 11, weight: '600' },
+                            color: text
+                        }
+                    },
+                    tooltip: tt
+                }
+            }
+        });
+    }
+
+    // ---- Summary Kategori Bar ----
+    if (summaryKat) {
+        const cats = {};
+        products.forEach(p => { cats[p.category] = (cats[p.category] || 0) + p.qty; });
+        const kl = Object.keys(cats), kv = Object.values(cats);
+        const ctx = summaryKat.getContext('2d');
+        const barColors = ['#F97316', '#3B82F6', '#10B981', '#F59E0B', '#EF4444'];
+        charts.summaryKat = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: kl,
+                datasets: [{
+                    label: 'Unit',
+                    data: kv,
+                    backgroundColor: kl.map((_, i) => barColors[i % barColors.length] + '99'),
+                    hoverBackgroundColor: kl.map((_, i) => barColors[i % barColors.length]),
+                    borderRadius: 6,
+                    borderSkipped: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: tt },
+                scales: sharedScaleOpts()
+            }
+        });
+    }
+
+    // ---- Channel Donut (sales-channel page) ----
+    if (channelDonut) {
+        const ctx = channelDonut.getContext('2d');
+        charts.channel = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['OPD Jakarta', 'Karyawan', 'Marketplace'],
+                datasets: [{ data: [60, 25, 15], backgroundColor: ['#F97316', '#3B82F6', '#10B981'], borderWidth: 0, hoverOffset: 6 }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, cutout: '68%',
+                plugins: { legend: { position: 'bottom', labels: { padding: 16, usePointStyle: true, pointStyleWidth: 8, font: { size: 11, weight: '600' }, color: text } }, tooltip: tt }
+            }
+        });
+    }
+
+    // ---- Kategori Bar ----
     if (kategoriBar) {
         const cats = {};
         products.forEach(p => { cats[p.category] = (cats[p.category] || 0) + p.qty; });
         const kl = Object.keys(cats), kv = Object.values(cats);
-        const c2 = kategoriBar.getContext('2d');
-        charts.kategori = new Chart(c2, {
+        const ctx = kategoriBar.getContext('2d');
+        const barColors = ['#F97316', '#3B82F6', '#10B981', '#F59E0B', '#EF4444'];
+        charts.kategori = new Chart(ctx, {
             type: 'bar',
-            data: { labels: kl, datasets: [{ label: 'Unit', data: kv, backgroundColor: ['rgba(254,110,0,0.6)', 'rgba(66,61,56,0.5)', 'rgba(251,44,54,0.5)', 'rgba(48,128,255,0.5)', 'rgba(0,199,88,0.5)'], borderRadius: 4, borderSkipped: false }] },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: grid }, ticks: { color: text } }, x: { grid: { display: false }, ticks: { color: text } } } }
+            data: {
+                labels: kl,
+                datasets: [{
+                    label: 'Unit', data: kv,
+                    backgroundColor: kl.map((_, i) => barColors[i % barColors.length] + '99'),
+                    hoverBackgroundColor: kl.map((_, i) => barColors[i % barColors.length]),
+                    borderRadius: 6, borderSkipped: false
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: tt },
+                scales: sharedScaleOpts()
+            }
         });
     }
 
+    // ---- OPD Horizontal Bar ----
     if (opdChart) {
-        const ol = opdData.map(o => o.name.replace('Dinas ', ''));
-        const ov = opdData.map(o => o.omzet / 1e6);
-        const c3 = opdChart.getContext('2d');
-        charts.opd = new Chart(c3, {
+        const ol  = opdData.map(o => o.name.replace('Dinas ', ''));
+        const ov  = opdData.map(o => o.omzet / 1e6);
+        const ctx = opdChart.getContext('2d');
+        charts.opd = new Chart(ctx, {
             type: 'bar',
-            data: { labels: ol, datasets: [{ label: 'Omzet (jt)', data: ov, backgroundColor: ['rgba(254,110,0,0.7)', 'rgba(254,110,0,0.5)', 'rgba(254,110,0,0.35)', 'rgba(254,110,0,0.25)', 'rgba(254,110,0,0.15)'], borderRadius: 4, borderSkipped: false }] },
-            options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { beginAtZero: true, grid: { color: grid }, ticks: { color: text } }, y: { grid: { display: false }, ticks: { color: text } } } }
+            data: {
+                labels: ol,
+                datasets: [{
+                    label: 'Omzet (jt)', data: ov,
+                    backgroundColor: ov.map((_, i) => `rgba(249,115,22,${0.85 - i * 0.14})`),
+                    hoverBackgroundColor: '#F97316',
+                    borderRadius: 5, borderSkipped: false
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+                plugins: { legend: { display: false }, tooltip: { ...tt, callbacks: { label: ctx => ` Rp ${ctx.parsed.x.toFixed(0)} juta` } } },
+                scales: {
+                    x: { beginAtZero: true, grid: { color: gc(), drawBorder: false }, ticks: { color: tc(), font: { size: 11 } }, border: { display: false } },
+                    y: { grid: { display: false }, ticks: { color: tc(), font: { size: 11, weight: '600' } }, border: { display: false } }
+                }
+            }
         });
     }
 
+    // ---- Trend Line (sales-trend page) ----
     if (trendChart) {
-        const months = monthlyData.map(m => m.month);
-        const mvals = monthlyData.map(m => m.value / 1e6);
-        const c4 = trendChart.getContext('2d');
-        const grad = c4.createLinearGradient(0, 0, 0, 320);
-        grad.addColorStop(0, 'rgba(254,110,0,0.10)');
-        grad.addColorStop(1, 'rgba(254,110,0,0)');
-        charts.trend = new Chart(c4, {
+        const ctx  = trendChart.getContext('2d');
+        const h    = trendChart.parentElement.offsetHeight || 280;
+        const grad = ctx.createLinearGradient(0, 0, 0, h);
+        grad.addColorStop(0,   'rgba(249,115,22,0.18)');
+        grad.addColorStop(0.7, 'rgba(249,115,22,0.02)');
+        grad.addColorStop(1,   'rgba(249,115,22,0)');
+
+        charts.trend = new Chart(ctx, {
             type: 'line',
-            data: { labels: months, datasets: [{ label: 'Penjualan (Rp juta)', data: mvals, borderColor: '#FE6E00', backgroundColor: grad, fill: true, tension: 0.3, pointBackgroundColor: '#FE6E00', pointBorderColor: pointB, pointBorderWidth: 2, pointRadius: 4, pointHoverRadius: 6, borderWidth: 2 }] },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { color: grid }, ticks: { color: text } }, x: { grid: { display: false }, ticks: { color: text } } }, interaction: { intersect: false, mode: 'index' } }
+            data: {
+                labels: monthlyData.map(m => m.month),
+                datasets: [{
+                    label: 'Penjualan (Rp juta)',
+                    data: monthlyData.map(m => m.value / 1e6),
+                    borderColor: '#F97316',
+                    backgroundColor: grad,
+                    fill: true, tension: 0.4,
+                    pointBackgroundColor: '#F97316', pointBorderColor: pointBg,
+                    pointBorderWidth: 2.5, pointRadius: 4, pointHoverRadius: 7, borderWidth: 2.5
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                interaction: { intersect: false, mode: 'index' },
+                plugins: { legend: { display: false }, tooltip: { ...tt, callbacks: { label: ctx => ` Rp ${ctx.parsed.y.toFixed(0)} juta` } } },
+                scales: {
+                    ...sharedScaleOpts(),
+                    y: { ...sharedScaleOpts().y, ticks: { ...sharedScaleOpts().y.ticks, callback: v => 'Rp ' + v + ' jt' } }
+                }
+            }
         });
     }
+
+    // ---- Marketplace Donuts ----
+    const mkpTT = { ...tt, callbacks: { label: ctx => ` ${ctx.label}: ${fmtNum(ctx.parsed)}` } };
 
     if (mkpOrderChart) {
-        const c5 = mkpOrderChart.getContext('2d');
-        charts.mkpOrder = new Chart(c5, {
+        const ctx = mkpOrderChart.getContext('2d');
+        charts.mkpOrder = new Chart(ctx, {
             type: 'doughnut',
-            data: { labels: ['Shopee', 'Tokopedia'], datasets: [{ data: [450, 150], backgroundColor: ['#EE4D2D', '#4AB17C'], borderWidth: 0 }] },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { title: { display: true, text: 'Order', font: { size: 13, weight: '700' }, padding: 12, color: text }, legend: { position: 'bottom', labels: { usePointStyle: true, font: { size: 11 }, color: text } } }, cutout: '60%' }
+            data: {
+                labels: ['Shopee', 'Tokopedia'],
+                datasets: [{ data: [450, 150], backgroundColor: ['#EE4D2D', '#00AA5B'], borderWidth: 0, hoverOffset: 6 }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, cutout: '65%',
+                plugins: {
+                    title: { display: true, text: 'Order', font: { size: 12, weight: '700' }, padding: { bottom: 10 }, color: text },
+                    legend: { position: 'bottom', labels: { usePointStyle: true, pointStyleWidth: 8, font: { size: 11 }, color: text } },
+                    tooltip: mkpTT
+                }
+            }
         });
     }
 
     if (mkpOmzetChart) {
-        const c6 = mkpOmzetChart.getContext('2d');
-        charts.mkpOmzet = new Chart(c6, {
+        const ctx = mkpOmzetChart.getContext('2d');
+        charts.mkpOmzet = new Chart(ctx, {
             type: 'doughnut',
-            data: { labels: ['Shopee', 'Tokopedia'], datasets: [{ data: [150, 50], backgroundColor: ['#EE4D2D', '#4AB17C'], borderWidth: 0 }] },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { title: { display: true, text: 'Omzet (Rp jt)', font: { size: 13, weight: '700' }, padding: 12, color: text }, legend: { position: 'bottom', labels: { usePointStyle: true, font: { size: 11 }, color: text } } }, cutout: '60%' }
+            data: {
+                labels: ['Shopee', 'Tokopedia'],
+                datasets: [{ data: [150, 50], backgroundColor: ['#EE4D2D', '#00AA5B'], borderWidth: 0, hoverOffset: 6 }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, cutout: '65%',
+                plugins: {
+                    title: { display: true, text: 'Omzet (Rp jt)', font: { size: 12, weight: '700' }, padding: { bottom: 10 }, color: text },
+                    legend: { position: 'bottom', labels: { usePointStyle: true, pointStyleWidth: 8, font: { size: 11 }, color: text } },
+                    tooltip: mkpTT
+                }
+            }
         });
     }
 }
@@ -340,54 +624,32 @@ function showUserModal(user) {
     if (!modal) return;
     if (umError) umError.style.display = 'none';
     const isSuper = user && user.role === 'superadmin';
-    const pwHint = document.querySelector('#umPassword')?.closest('.login-field')?.querySelector('span');
+
     if (user) {
         editingUserId = user.id;
         const title = document.getElementById('userModalTitle');
         if (title) title.textContent = 'Edit User';
-        const uu = document.getElementById('umUsername');
-        if (uu) uu.value = user.username;
-        const up = document.getElementById('umPassword');
-        if (up) up.value = '';
-        const ud = document.getElementById('umDisplayName');
-        if (ud) ud.value = user.display_name;
+        const uu = document.getElementById('umUsername');      if (uu) uu.value = user.username;
+        const up = document.getElementById('umPassword');      if (up) up.value = '';
+        const ud = document.getElementById('umDisplayName');   if (ud) ud.value = user.display_name;
     } else {
         editingUserId = null;
-        const title = document.getElementById('userModalTitle');
-        if (title) title.textContent = 'Tambah User';
-        const uu = document.getElementById('umUsername');
-        if (uu) uu.value = '';
-        const up = document.getElementById('umPassword');
-        if (up) up.value = '';
-        const ud = document.getElementById('umDisplayName');
-        if (ud) ud.value = '';
-        const ur = document.getElementById('umRole');
-        if (ur) ur.value = 'user';
+        const title = document.getElementById('userModalTitle'); if (title) title.textContent = 'Tambah User';
+        ['umUsername','umPassword','umDisplayName'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+        const ur = document.getElementById('umRole'); if (ur) ur.value = 'user';
     }
+
     if (isSuper) {
-        const uu = document.getElementById('umUsername');
-        if (uu) uu.disabled = true;
-        const ud = document.getElementById('umDisplayName');
-        if (ud) ud.disabled = true;
-        const rf = document.getElementById('umRoleField');
-        if (rf) rf.style.display = 'none';
-        const si = document.getElementById('umSuperadminInfo');
-        if (si) si.style.display = '';
-        if (pwHint) pwHint.textContent = '(wajib diisi)';
+        const uu = document.getElementById('umUsername');     if (uu) uu.disabled = true;
+        const ud = document.getElementById('umDisplayName'); if (ud) ud.disabled = true;
+        const rf = document.getElementById('umRoleField');   if (rf) rf.style.display = 'none';
+        const si = document.getElementById('umSuperadminInfo'); if (si) si.style.display = '';
     } else {
-        const uu = document.getElementById('umUsername');
-        if (uu) uu.disabled = false;
-        const ud = document.getElementById('umDisplayName');
-        if (ud) ud.disabled = false;
-        const rf = document.getElementById('umRoleField');
-        if (rf) rf.style.display = '';
-        const si = document.getElementById('umSuperadminInfo');
-        if (si) si.style.display = 'none';
-        if (pwHint) pwHint.textContent = '(kosongi jika tidak diubah)';
-        if (user) {
-            const ur = document.getElementById('umRole');
-            if (ur) ur.value = user.role;
-        }
+        const uu = document.getElementById('umUsername');     if (uu) uu.disabled = false;
+        const ud = document.getElementById('umDisplayName'); if (ud) ud.disabled = false;
+        const rf = document.getElementById('umRoleField');   if (rf) rf.style.display = '';
+        const si = document.getElementById('umSuperadminInfo'); if (si) si.style.display = 'none';
+        if (user) { const ur = document.getElementById('umRole'); if (ur) ur.value = user.role; }
     }
     if (modal) modal.style.display = 'flex';
 }
@@ -400,28 +662,21 @@ function closeUserModal() {
 }
 
 function saveUser() {
-    const username = document.getElementById('umUsername')?.value.trim();
-    const password = document.getElementById('umPassword')?.value.trim();
+    const username    = document.getElementById('umUsername')?.value.trim();
+    const password    = document.getElementById('umPassword')?.value.trim();
     const displayName = document.getElementById('umDisplayName')?.value.trim();
-    const siDisplay = document.getElementById('umSuperadminInfo')?.style.display;
+    const siDisplay   = document.getElementById('umSuperadminInfo')?.style.display;
     const isSuperEdit = editingUserId && siDisplay !== 'none' && siDisplay !== '';
-    const role = isSuperEdit ? 'superadmin' : (document.getElementById('umRole')?.value || 'user');
-    const errEl = document.getElementById('umError');
+    const role        = isSuperEdit ? 'superadmin' : (document.getElementById('umRole')?.value || 'user');
+    const errEl       = document.getElementById('umError');
     if (errEl) errEl.style.display = 'none';
 
     if (!username || !displayName) {
-        if (errEl) {
-            errEl.textContent = 'Username dan Nama wajib diisi';
-            errEl.style.display = 'flex';
-        }
+        if (errEl) { errEl.textContent = 'Username dan Nama wajib diisi'; errEl.style.display = 'flex'; }
         return;
     }
-
     if (isSuperEdit && !password) {
-        if (errEl) {
-            errEl.textContent = 'Password wajib diisi untuk Superadmin';
-            errEl.style.display = 'flex';
-        }
+        if (errEl) { errEl.textContent = 'Password wajib diisi untuk Superadmin'; errEl.style.display = 'flex'; }
         return;
     }
 
@@ -437,24 +692,12 @@ function saveUser() {
     fetch(`${API_BASE}/users.php`, { method: 'POST', body: formData, credentials: 'include' })
         .then(r => r.json())
         .then(data => {
-            if (data.error) {
-                if (errEl) {
-                    errEl.textContent = data.error;
-                    errEl.style.display = 'flex';
-                }
-                return;
-            }
+            if (data.error) { if (errEl) { errEl.textContent = data.error; errEl.style.display = 'flex'; } return; }
             closeUserModal();
             loadUsers();
-            const label = isEdit ? 'diubah' : 'dibuat';
-            showSuccess('Berhasil', `User "${username}" berhasil ${label}.`);
+            showSuccess('Berhasil', `User "${username}" berhasil ${isEdit ? 'diubah' : 'dibuat'}.`);
         })
-        .catch(() => {
-            if (errEl) {
-                errEl.textContent = 'Gagal terhubung ke server';
-                errEl.style.display = 'flex';
-            }
-        });
+        .catch(() => { if (errEl) { errEl.textContent = 'Gagal terhubung ke server'; errEl.style.display = 'flex'; } });
 }
 
 function deleteUser(id, username) {
@@ -502,7 +745,7 @@ let confirmCallback = null;
 function showConfirm(title, message, okLabel, cb) {
     const t = document.getElementById('confirmTitle');
     const m = document.getElementById('confirmMessage');
-    const ok = document.getElementById('confirmOkBtn');
+    const ok= document.getElementById('confirmOkBtn');
     const modal = document.getElementById('confirmModal');
     if (t) t.textContent = title;
     if (m) m.textContent = message;
@@ -545,7 +788,6 @@ document.getElementById('successModal')?.addEventListener('click', function (e) 
     if (e.target === this) closeSuccessModal();
 });
 
-// ===== MODAL OVERLAY CLICKS =====
 document.getElementById('userModal')?.addEventListener('click', function (e) {
     if (e.target === this) closeUserModal();
 });
@@ -562,4 +804,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-window.addEventListener('resize', () => { Object.values(charts).forEach(c => { if (c) c.resize(); }); });
+window.addEventListener('resize', () => {
+    Object.values(charts).forEach(c => { if (c) c.resize(); });
+});
