@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /dashboard-merchandise/
+
+# Skip existing files and directories (css, js, images, actual PHP files)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route everything else through the front controller
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
