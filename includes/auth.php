@@ -4,7 +4,8 @@ session_start();
 if (php_sapi_name() === 'cli-server') {
     define('BASE_URL', '');
 } else {
-    define('BASE_URL', '/dashboard-merchandise');
+    $scriptDir = dirname($_SERVER['SCRIPT_NAME']);
+    define('BASE_URL', $scriptDir === '/' || $scriptDir === '\\' ? '' : $scriptDir);
 }
 
 // --- Clean URL Routing ---
@@ -12,26 +13,26 @@ $url = isset($_GET['url']) ? trim($_GET['url'], '/') : '';
 $url = strtok($url, '?'); // strip query string if any
 
 $routeMap = [
-    ''                => 'summary',
-    'summary'         => 'summary',
-    'sales-channel'   => 'sales-channel',
-    'product-analysis'=> 'product-analysis',
-    'customer-analysis'=> 'customer-analysis',
-    'sales-trend'     => 'sales-trend',
-    'marketplace'     => 'marketplace',
-    'finance'         => 'finance',
-    'inventory'       => 'inventory',
-    'inventory-in'    => 'stock-in',
-    'inventory-out'   => 'stock-adjustments',
-    'stock-in'        => 'stock-in',
-    'stock-adjustments'=> 'stock-adjustments',
-    'pos'             => 'pos',
-    'sales-opd'       => 'sales-opd',
-    'sales-bumd'      => 'sales-bumd',
-    'products'        => 'products',
+    '' => 'summary',
+    'summary' => 'summary',
+    'sales-channel' => 'sales-channel',
+    'product-analysis' => 'product-analysis',
+    'customer-analysis' => 'customer-analysis',
+    'sales-trend' => 'sales-trend',
+    'marketplace' => 'marketplace',
+    'finance' => 'finance',
+    'inventory' => 'inventory',
+    'inventory-in' => 'stock-in',
+    'inventory-out' => 'stock-adjustments',
+    'stock-in' => 'stock-in',
+    'stock-adjustments' => 'stock-adjustments',
+    'pos' => 'pos',
+    'sales-opd' => 'sales-opd',
+    'sales-bumd' => 'sales-bumd',
+    'products' => 'products',
     'stock-mutations' => 'stock-mutations',
-    'opd-customers'   => 'opd-customers',
-    'bumd-customers'  => 'bumd-customers',
+    'opd-customers' => 'opd-customers',
+    'bumd-customers' => 'bumd-customers',
     'merchandise-jff-import' => 'merchandise-jff-import',
     'merchandise-jff-dashboard' => 'merchandise-jff-dashboard',
 ];
@@ -62,6 +63,6 @@ $showFilter = in_array($currentPage, [
 
 // --- Session data ---
 $isLoggedIn = isset($_SESSION['user_id']);
-$userRole   = $_SESSION['role'] ?? '';
+$userRole = $_SESSION['role'] ?? '';
 $displayName = $_SESSION['display_name'] ?? '';
-$username   = $_SESSION['username'] ?? '';
+$username = $_SESSION['username'] ?? '';

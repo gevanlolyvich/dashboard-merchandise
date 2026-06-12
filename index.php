@@ -110,7 +110,7 @@ $pageSub = $pageSubMap[$currentPage] ?? '';
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=<?= filemtime(__DIR__ . '/assets/css/style.css') ?>">
     <script>
         const BASE_URL = '<?= BASE_URL ?>';
         const API_BASE = BASE_URL + '/api';
@@ -125,44 +125,57 @@ $pageSub = $pageSubMap[$currentPage] ?? '';
         <div class="login-panel-left">
             <div class="login-panel-content">
                 <div class="login-brand-mark">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" />
                     </svg>
                 </div>
                 <div class="login-panel-badge">Dashboard Merchandise</div>
                 <h1 class="login-panel-title">PT Jakarta<br>Tourisindo</h1>
-                <p class="login-panel-sub">Platform manajemen & analitik penjualan merchandise terpadu untuk PT Jakarta Tourisindo.</p>
+                <p class="login-panel-sub">Platform manajemen & analitik penjualan merchandise terpadu untuk PT Jakarta
+                    Tourisindo.</p>
                 <div class="login-panel-features">
                     <div class="login-feature-item">
                         <div class="login-feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="20" x2="18" y2="10" />
+                                <line x1="12" y1="20" x2="12" y2="4" />
+                                <line x1="6" y1="20" x2="6" y2="14" />
                             </svg>
                         </div>
                         <span>Analitik penjualan real-time</span>
                     </div>
                     <div class="login-feature-item">
                         <div class="login-feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
                             </svg>
                         </div>
                         <span>Manajemen stok & persediaan</span>
                     </div>
                     <div class="login-feature-item">
                         <div class="login-feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1" />
+                                <circle cx="20" cy="21" r="1" />
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
                             </svg>
                         </div>
                         <span>Integrasi Marketplace & POS</span>
                     </div>
                     <div class="login-feature-item">
                         <div class="login-feature-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                             </svg>
                         </div>
                         <span>Penjualan OPD & BUMD Jakarta</span>
@@ -188,8 +201,10 @@ $pageSub = $pageSubMap[$currentPage] ?? '';
                 <div class="login-field">
                     <label>Username</label>
                     <div class="login-input-wrap">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
                         </svg>
                         <input type="text" id="loginUser" placeholder="Masukkan username" autocomplete="off">
                     </div>
@@ -197,37 +212,44 @@ $pageSub = $pageSubMap[$currentPage] ?? '';
                 <div class="login-field">
                     <label>Password</label>
                     <div class="login-input-wrap">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                         </svg>
-                        <input type="password" id="loginPass" placeholder="••••••••" onkeydown="if(event.key==='Enter') doLogin()">
+                        <input type="password" id="loginPass" placeholder="••••••••"
+                            onkeydown="if(event.key==='Enter') doLogin()">
                     </div>
                 </div>
 
                 <div class="login-error" id="loginError">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0">
-                        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        style="width:14px;height:14px;flex-shrink:0">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
                     </svg>
                     Username atau password salah
                 </div>
 
                 <button class="login-btn" onclick="doLogin()">
                     Masuk
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;">
-                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        style="width:15px;height:15px;">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
                     </svg>
                 </button>
-
-                <div class="login-role-info">
-                    <strong>Demo credentials:</strong><br>
-                    Superadmin: <code>admin</code> / <code>password</code>
-                </div>
             </div>
         </div>
     </div>
 
     <?php include __DIR__ . '/includes/header.php'; ?>
+
+    <!-- Sidebar backdrop for mobile -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeSidebar()"></div>
 
     <div class="shell-layout">
 
@@ -236,13 +258,13 @@ $pageSub = $pageSubMap[$currentPage] ?? '';
         <main class="main">
 
             <?php if (!in_array($currentPage, ['stock-in', 'stock-adjustments', 'products', 'opd-customers', 'bumd-customers', 'sales-opd', 'sales-bumd', 'merchandise-jff-import', 'merchandise-jff-dashboard'])): ?>
-            <div class="page-header">
-                <div>
-                    <div class="page-title"><?= htmlspecialchars($pageTitle) ?></div>
-                    <div class="page-sub"><?= htmlspecialchars($pageSub) ?></div>
+                <div class="page-header">
+                    <div>
+                        <div class="page-title"><?= htmlspecialchars($pageTitle) ?></div>
+                        <div class="page-sub"><?= htmlspecialchars($pageSub) ?></div>
+                    </div>
+                    <button class="btn-primary" onclick="applyFilter()">Terapkan Filter</button>
                 </div>
-                <button class="btn-primary" onclick="applyFilter()">Terapkan Filter</button>
-            </div>
             <?php endif; ?>
 
             <?php if ($showFilter): ?>
@@ -284,7 +306,8 @@ $pageSub = $pageSubMap[$currentPage] ?? '';
                 <div class="modal-title" id="successTitle">Berhasil</div>
             </div>
             <div class="modal-body">
-                <p id="successMessage" style="color:var(--on-surface-muted);font-size:0.9375rem;line-height:1.6;white-space:pre-line;"></p>
+                <p id="successMessage"
+                    style="color:var(--on-surface-muted);font-size:0.9375rem;line-height:1.6;white-space:pre-line;"></p>
             </div>
             <div class="modal-footer">
                 <button class="btn-primary" onclick="closeSuccessModal()">OK</button>

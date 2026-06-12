@@ -4,7 +4,7 @@
 <div class="filter-bar">
     <div class="filter-group">
         <label>Cari</label>
-        <input type="text" id="mutSearch" placeholder="Kode produk..." style="height:36px;padding:0 12px;border-radius:6px;border:1px solid var(--outline);background:var(--surface-elevated);color:var(--on-surface);font-size:0.875rem;font-family:var(--font);outline:none;min-width:200px;">
+        <input type="text" id="mutSearch" placeholder="Kode produk..." style="height:36px;padding:0 12px;border-radius:6px;border:1px solid var(--outline);background:var(--surface-elevated);color:var(--on-surface);font-size:0.875rem;font-family:var(--font);outline:none;width:200px;max-width:100%;">
     </div>
     <div class="filter-group">
         <label>Jenis Mutasi</label>
@@ -79,7 +79,7 @@ function loadMutations(page) {
                 const isPlus = qty > 0;
                 const icon = item.mutation_type === 'masuk' ? '📥' : '📤';
                 return `<tr>
-                    <td style="white-space:nowrap">${item.created_at}</td>
+                    <td>${item.created_at}</td>
                     <td><strong>${item.product_code}</strong></td>
                     <td>${icon} ${item.mutation_label}</td>
                     <td><strong style="color:${isPlus ? 'var(--success)' : 'var(--danger)'}">${isPlus ? '+' : ''}${qty.toLocaleString('id-ID')}</strong></td>

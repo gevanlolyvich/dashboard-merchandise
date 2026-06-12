@@ -22,7 +22,7 @@ $pageTitle = 'Manajemen User';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT Jakarta Tourisindo — <?= $pageTitle ?></title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?= filemtime(__DIR__ . '/../assets/css/style.css') ?>">
     <script>
         const BASE_URL = '<?= BASE_URL ?>';
         const API_BASE = BASE_URL + '/api';
@@ -32,6 +32,8 @@ $pageTitle = 'Manajemen User';
 <body>
 
     <?php include __DIR__ . '/../includes/header.php'; ?>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeSidebar()"></div>
 
     <div class="shell-layout">
 

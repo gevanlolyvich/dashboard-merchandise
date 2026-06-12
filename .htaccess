@@ -1,5 +1,4 @@
 RewriteEngine On
-RewriteBase /dashboard-merchandise/
 
 # Skip existing files and directories (css, js, images, actual PHP files)
 RewriteCond %{REQUEST_FILENAME} !-f

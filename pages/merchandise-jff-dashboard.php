@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;">
+<div class="grid-2" style="margin-top:20px;">
     <div class="card">
         <div class="card-title" style="margin-bottom:12px;">Penjualan per Hari</div>
         <canvas id="chartPenjualanHari" height="200"></canvas>
@@ -43,7 +43,7 @@
     </div>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;">
+<div class="grid-2" style="margin-top:20px;">
     <div class="card">
         <div class="card-title" style="margin-bottom:12px;">Kategori Produk</div>
         <canvas id="chartKategori" height="200"></canvas>

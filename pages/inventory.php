@@ -36,7 +36,7 @@
     <div class="card" style="border-top:3px solid var(--warning);">
         <div class="card-header">
             <div class="card-title"><span class="emoji">🔔</span> Stok Terbaru</div>
-            <input type="text" id="stockSearch" placeholder="Cari produk..." style="height:32px;padding:0 10px;border-radius:6px;border:1px solid var(--outline);background:var(--surface-elevated);color:var(--on-surface);font-size:0.8125rem;font-family:var(--font);outline:none;width:180px;">
+            <input type="text" id="stockSearch" placeholder="Cari produk..." style="height:32px;padding:0 10px;border-radius:6px;border:1px solid var(--outline);background:var(--surface-elevated);color:var(--on-surface);font-size:0.8125rem;font-family:var(--font);outline:none;width:180px;max-width:100%;">
         </div>
         <div class="table-wrap">
             <table>

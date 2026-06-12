@@ -15,10 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
   exit;
 }
 
-$host = '172.16.0.18';
+$host = 'localhost';
 $dbname = 'dashboard_merchandise';
-$username = 'jxbdev';
-$password = 'DeptIT2022;';
+$username = 'root';
+$password = '';
 
 try {
   $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);

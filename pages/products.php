@@ -9,7 +9,7 @@
 <div class="filter-bar">
     <div class="filter-group">
         <label>Cari Produk</label>
-        <input type="text" id="prodSearch" placeholder="Kode, nama, kategori..." style="height:36px;padding:0 12px;border-radius:6px;border:1px solid var(--outline);background:var(--surface-elevated);color:var(--on-surface);font-size:0.875rem;font-family:var(--font);outline:none;min-width:220px;">
+        <input type="text" id="prodSearch" placeholder="Kode, nama, kategori..." style="height:36px;padding:0 12px;border-radius:6px;border:1px solid var(--outline);background:var(--surface-elevated);color:var(--on-surface);font-size:0.875rem;font-family:var(--font);outline:none;width:220px;max-width:100%;">
     </div>
     <button class="btn-primary" onclick="loadProducts(1)" style="height:36px;font-size:0.8125rem;align-self:end;">Cari</button>
 </div>

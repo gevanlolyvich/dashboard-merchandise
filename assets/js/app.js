@@ -793,6 +793,24 @@ document.getElementById('userModal')?.addEventListener('click', function (e) {
     if (e.target === this) closeUserModal();
 });
 
+// ===== SIDEBAR TOGGLE (Responsive) =====
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    if (!sidebar) return;
+    const open = sidebar.classList.toggle('open');
+    if (backdrop) backdrop.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+}
+
+function closeSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    if (sidebar) sidebar.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', function () {
     renderProducts();
