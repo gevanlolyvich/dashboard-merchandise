@@ -21,6 +21,7 @@ $pageTitleMap = [
     'customer-analysis' => 'Analisis Customer',
     'sales-trend' => 'Tren Penjualan',
     'marketplace' => 'Marketplace',
+    'marketplace-dashboard' => 'Marketplace Dashboard',
     'pos' => 'POS',
     'sales-opd' => 'Penjualan OPD',
     'sales-bumd' => 'Penjualan BUMD',
@@ -29,7 +30,8 @@ $pageTitleMap = [
     'products' => 'Master Produk',
     'stock-in' => 'Pemasukan Stok',
     'stock-mutations' => 'Riwayat Mutasi Stok',
-    'stock-adjustments' => 'Penyesuaian Stok',
+    'stock-adjustments' => 'Refund Produk',
+    'refund' => 'Refund Produk',
     'opd-customers' => 'Master OPD',
     'bumd-customers' => 'Master BUMD',
     'merchandise-jff-import' => 'Pemasukan Data Excel',
@@ -43,6 +45,7 @@ $pageFileMap = [
     'customer-analysis' => 'pages/customer-analysis.php',
     'sales-trend' => 'pages/sales-trend.php',
     'marketplace' => 'pages/marketplace.php',
+    'marketplace-dashboard' => 'pages/marketplace-dashboard.php',
     'pos' => 'pages/pos.php',
     'sales-opd' => 'pages/sales-opd.php',
     'sales-bumd' => 'pages/sales-bumd.php',
@@ -51,7 +54,8 @@ $pageFileMap = [
     'products' => 'pages/products.php',
     'stock-in' => 'pages/inventory-in.php',
     'stock-mutations' => 'pages/stock-mutations.php',
-    'stock-adjustments' => 'pages/inventory-out.php',
+    'stock-adjustments' => 'pages/refund.php',
+    'refund' => 'pages/refund.php',
     'opd-customers' => 'pages/opd-customers.php',
     'bumd-customers' => 'pages/bumd-customers.php',
     'merchandise-jff-import' => 'pages/merchandise-jff-import.php',
@@ -67,7 +71,7 @@ if (!$pageFile || !file_exists(__DIR__ . '/' . $pageFile)) {
     $pageFile = 'pages/summary.php';
 }
 
-$inventoryPages = ['products', 'stock-in', 'stock-mutations', 'stock-adjustments'];
+$inventoryPages = ['products', 'stock-in', 'stock-mutations', 'stock-adjustments', 'refund'];
 if (in_array($currentPage, $inventoryPages) && $userRole === 'user') {
     $currentPage = 'summary';
     $pageTitle = 'Executive Summary';
@@ -81,6 +85,7 @@ $pageSubMap = [
     'customer-analysis' => 'Analisis perilaku dan demografi customer',
     'sales-trend' => 'Tren penjualan bulanan dan tahunan',
     'marketplace' => 'Data marketplace dari integrasi Ginee API',
+    'marketplace-dashboard' => 'Ringkasan penjualan marketplace',
     'pos' => 'Data penjualan dari integrasi POS pihak ketiga',
     'sales-opd' => 'Penjualan langsung ke instansi pemerintah',
     'sales-bumd' => 'Penjualan langsung ke perusahaan daerah',
@@ -89,7 +94,8 @@ $pageSubMap = [
     'products' => 'Kelola master produk merchandise',
     'stock-in' => 'Catat pemasukan stok ke gudang',
     'stock-mutations' => 'Riwayat seluruh pergerakan stok',
-    'stock-adjustments' => 'Penyesuaian stok karena rusak, hilang, atau koreksi',
+    'stock-adjustments' => 'Kembalikan stok produk dari transaksi OPD/BUMD',
+    'refund' => 'Kembalikan stok produk dari transaksi OPD/BUMD',
     'opd-customers' => 'Data instansi pemerintah daerah',
     'bumd-customers' => 'Data perusahaan daerah',
     'merchandise-jff-import' => 'Import file Excel rekap merchandise JFF',
@@ -257,7 +263,7 @@ $pageSub = $pageSubMap[$currentPage] ?? '';
 
         <main class="main">
 
-            <?php if (!in_array($currentPage, ['stock-in', 'stock-adjustments', 'products', 'opd-customers', 'bumd-customers', 'sales-opd', 'sales-bumd', 'merchandise-jff-import', 'merchandise-jff-dashboard'])): ?>
+            <?php if (!in_array($currentPage, ['stock-in', 'stock-adjustments', 'refund', 'products', 'opd-customers', 'bumd-customers', 'sales-opd', 'sales-bumd', 'merchandise-jff-import', 'merchandise-jff-dashboard', 'marketplace-dashboard'])): ?>
                 <div class="page-header">
                     <div>
                         <div class="page-title"><?= htmlspecialchars($pageTitle) ?></div>

@@ -16,6 +16,7 @@
             <option value="marketplace">Marketplace</option>
             <option value="pos">POS</option>
             <option value="penyesuaian">Penyesuaian</option>
+            <option value="refund">Refund</option>
         </select>
     </div>
     <div class="filter-group">
@@ -77,7 +78,7 @@ function loadMutations(page) {
             tbody.innerHTML = data.items.map(item => {
                 const qty = parseInt(item.quantity);
                 const isPlus = qty > 0;
-                const icon = item.mutation_type === 'masuk' ? '📥' : '📤';
+                const icon = item.mutation_type === 'masuk' ? '📥' : item.mutation_type === 'refund' ? '↩️' : '📤';
                 return `<tr>
                     <td>${item.created_at}</td>
                     <td><strong>${item.product_code}</strong></td>

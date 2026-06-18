@@ -19,6 +19,7 @@
             <option value="diproses">Diproses</option>
             <option value="selesai">Selesai</option>
             <option value="dibatalkan">Dibatalkan</option>
+            <option value="refund">Refund</option>
         </select>
     </div>
     <button class="btn-primary" onclick="loadOpdSales(1)" style="height:36px;font-size:0.8125rem;align-self:end;">Terapkan</button>
@@ -89,7 +90,7 @@ let opdSaleProductRowCount = 0;
 let opdProductList = [];
 
 function loadOpdProducts() {
-    fetch(API_BASE + '/products.php?page=1&limit=999', { credentials: 'include' })
+    return fetch(API_BASE + '/products.php?page=1&limit=999', { credentials: 'include' })
         .then(r => r.json())
         .then(data => {
             opdProductList = data.items || [];
@@ -177,7 +178,7 @@ function showOpdSaleModal() {
     document.getElementById('opdSaleNotes').value = '';
     document.getElementById('opdSaleProducts').innerHTML = '';
     opdSaleProductRowCount = 0;
-    addOpdSaleProductRow();
+    loadOpdProducts().then(() => addOpdSaleProductRow());
 }
 
 function closeOpdSaleModal() {
@@ -234,6 +235,7 @@ function saveOpdSale(status) {
             if (data.error) { errEl.textContent = data.error; errEl.style.display = 'flex'; return; }
             closeOpdSaleModal();
             loadOpdSales(currentOpdSalePage);
+            loadOpdProducts();
             showSuccess('Berhasil', data.message + ' (' + data.transaction_number + ')');
         })
         .catch(() => { errEl.textContent = 'Gagal terhubung ke server'; errEl.style.display = 'flex'; });
@@ -258,19 +260,18 @@ function loadOpdSales(page) {
                 return;
             }
             tbody.innerHTML = data.items.map(item => {
-                const statusColors = { draft: 'badge-neutral', diproses: 'badge-blue', selesai: 'badge-green', dibatalkan: 'badge-orange' };
+                const statusColors = { draft: 'badge-neutral', diproses: 'badge-blue', selesai: 'badge-green', dibatalkan: 'badge-orange', refund: 'badge-orange' };
                 const statusClass = statusColors[item.status] || 'badge-neutral';
                 return `<tr>
                     <td><strong>${item.transaction_number}</strong></td>
                     <td>${item.opd_name || '-'}</td>
                     <td>${item.transaction_date}</td>
-                    <td>${item.status === 'selesai' ? 'Stok terpotong' : 'Stok aman'}</td>
+                    <td>${item.status === 'selesai' ? 'Stok terpotong' : item.status === 'refund' ? 'Di-refund' : 'Stok aman'}</td>
                     <td><span class="badge ${statusClass}">${item.status}</span></td>
                     <td><div class="action-cell">
                         <button class="btn-edit" onclick="viewOpdSale(${item.id})">Detail</button>
-                        ${item.status !== 'selesai' && item.status !== 'dibatalkan' ? `<button class="btn-primary" onclick="updateOpdSaleStatus(${item.id},'selesai')" style="font-size:0.75rem;height:30px;padding:0 10px;">Selesai</button>` : ''}
-                        ${item.status !== 'dibatalkan' ? `<button class="btn-danger" onclick="updateOpdSaleStatus(${item.id},'dibatalkan')" style="font-size:0.75rem;height:30px;padding:0 10px;">Batal</button>` : ''}
-                        <button class="btn-danger" onclick="deleteOpdSale(${item.id})" style="font-size:0.75rem;height:30px;padding:0 10px;">Hapus</button>
+                        ${item.status === 'draft' ? `<button class="btn-primary" onclick="updateOpdSaleStatus(${item.id},'selesai')" style="font-size:0.75rem;height:30px;padding:0 10px;">Selesai</button>` : ''}
+                        ${item.status === 'selesai' || item.status === 'dibatalkan' || item.status === 'refund' ? '' : `<button class="btn-danger" onclick="updateOpdSaleStatus(${item.id},'dibatalkan')" style="font-size:0.75rem;height:30px;padding:0 10px;">Batal</button>`}
                     </div></td>
                 </tr>`;
             }).join('');
@@ -317,6 +318,7 @@ function updateOpdSaleStatus(id, status) {
             .then(data => {
                 if (data.error) { showSuccess('Gagal', data.error); return; }
                 loadOpdSales(currentOpdSalePage);
+                loadOpdProducts();
                 showSuccess('Berhasil', data.message);
             })
             .catch(() => showSuccess('Error', 'Gagal terhubung ke server'));
@@ -330,6 +332,7 @@ function deleteOpdSale(id) {
             .then(data => {
                 if (data.error) { showSuccess('Gagal', data.error); return; }
                 loadOpdSales(currentOpdSalePage);
+                loadOpdProducts();
                 showSuccess('Berhasil', data.message);
             })
             .catch(() => showSuccess('Error', 'Gagal terhubung ke server'));

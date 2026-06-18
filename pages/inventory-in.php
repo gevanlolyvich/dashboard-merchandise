@@ -169,6 +169,7 @@ function saveStockIn() {
             if (data.error) { errEl.textContent = data.error; errEl.style.display = 'flex'; return; }
             closeStockInModal();
             loadStockIn(currentSiPage);
+            loadProductDropdown();
             showSuccess('Berhasil', data.message);
         })
         .catch(() => { errEl.textContent = 'Gagal terhubung ke server'; errEl.style.display = 'flex'; });
@@ -229,6 +230,7 @@ function deleteStockIn(id) {
             .then(data => {
                 if (data.error) { showSuccess('Gagal', data.error); return; }
                 loadStockIn(currentSiPage);
+                loadProductDropdown();
                 showSuccess('Berhasil', data.message);
             })
             .catch(() => showSuccess('Error', 'Gagal terhubung ke server'));

@@ -189,6 +189,33 @@ try {
       FOREIGN KEY (sales_bumd_id) REFERENCES sales_bumd(id) ON DELETE CASCADE
     ) ENGINE=InnoDB");
 
+    $pdo->exec("ALTER TABLE sales_opd MODIFY COLUMN status ENUM('draft','diproses','selesai','dibatalkan','refund') NOT NULL DEFAULT 'draft'");
+    $pdo->exec("ALTER TABLE sales_bumd MODIFY COLUMN status ENUM('draft','diproses','selesai','dibatalkan','refund') NOT NULL DEFAULT 'draft'");
+    $pdo->exec("ALTER TABLE stock_mutations MODIFY COLUMN mutation_type ENUM('masuk','opd','bumd','marketplace','pos','penyesuaian','refund') NOT NULL");
+
+    $pdo->exec("CREATE TABLE IF NOT EXISTS refunds (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      transaction_type VARCHAR(10) NOT NULL,
+      transaction_id INT NOT NULL,
+      transaction_number VARCHAR(50) DEFAULT NULL,
+      customer_name VARCHAR(255) DEFAULT NULL,
+      refund_date DATE NOT NULL,
+      notes TEXT DEFAULT NULL,
+      created_by INT DEFAULT NULL,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE SET NULL
+    ) ENGINE=InnoDB");
+
+    $pdo->exec("CREATE TABLE IF NOT EXISTS refund_items (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      refund_id INT NOT NULL,
+      product_code VARCHAR(50) NOT NULL,
+      quantity INT NOT NULL DEFAULT 0,
+      unit VARCHAR(20) NOT NULL DEFAULT 'PCS',
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (refund_id) REFERENCES refunds(id) ON DELETE CASCADE
+    ) ENGINE=InnoDB");
+
     echo "Setup complete! All tables created.\n";
 } catch (Exception $e) {
     echo "Setup failed: " . $e->getMessage() . "\n";

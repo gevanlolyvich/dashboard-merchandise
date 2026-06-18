@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS stock_in (
 CREATE TABLE IF NOT EXISTS stock_mutations (
   id INT AUTO_INCREMENT PRIMARY KEY,
   product_code VARCHAR(50) NOT NULL,
-  mutation_type ENUM('masuk', 'opd', 'bumd', 'marketplace', 'pos', 'penyesuaian') NOT NULL,
+  mutation_type ENUM('masuk', 'opd', 'bumd', 'marketplace', 'pos', 'penyesuaian', 'refund') NOT NULL,
   quantity INT NOT NULL,
   unit VARCHAR(20) NOT NULL DEFAULT 'PCS',
   reference_type VARCHAR(50) DEFAULT NULL,
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS sales_opd (
   transaction_number VARCHAR(50) NOT NULL UNIQUE,
   opd_id INT NOT NULL,
   transaction_date DATE NOT NULL,
-  status ENUM('draft', 'diproses', 'selesai', 'dibatalkan') NOT NULL DEFAULT 'draft',
+  status ENUM('draft', 'diproses', 'selesai', 'dibatalkan', 'refund') NOT NULL DEFAULT 'draft',
   notes TEXT DEFAULT NULL,
   created_by INT DEFAULT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS sales_bumd (
   transaction_number VARCHAR(50) NOT NULL UNIQUE,
   bumd_id INT NOT NULL,
   transaction_date DATE NOT NULL,
-  status ENUM('draft', 'diproses', 'selesai', 'dibatalkan') NOT NULL DEFAULT 'draft',
+  status ENUM('draft', 'diproses', 'selesai', 'dibatalkan', 'refund') NOT NULL DEFAULT 'draft',
   notes TEXT DEFAULT NULL,
   created_by INT DEFAULT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -191,6 +191,30 @@ CREATE TABLE IF NOT EXISTS sales_bumd_items (
   price DECIMAL(15,2) NOT NULL DEFAULT 0,
   total DECIMAL(15,2) NOT NULL DEFAULT 0,
   FOREIGN KEY (sales_bumd_id) REFERENCES sales_bumd(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- ===== REFUND PRODUK =====
+CREATE TABLE IF NOT EXISTS refunds (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  transaction_type VARCHAR(10) NOT NULL,
+  transaction_id INT NOT NULL,
+  transaction_number VARCHAR(50) DEFAULT NULL,
+  customer_name VARCHAR(255) DEFAULT NULL,
+  refund_date DATE NOT NULL,
+  notes TEXT DEFAULT NULL,
+  created_by INT DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS refund_items (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  refund_id INT NOT NULL,
+  product_code VARCHAR(50) NOT NULL,
+  quantity INT NOT NULL DEFAULT 0,
+  unit VARCHAR(20) NOT NULL DEFAULT 'PCS',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (refund_id) REFERENCES refunds(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 -- Drop old tables (migrated to new schema)

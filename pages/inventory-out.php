@@ -161,6 +161,7 @@ function saveAdj() {
             if (data.error) { errEl.textContent = data.error; errEl.style.display = 'flex'; return; }
             closeAdjModal();
             loadAdj(currentAdjPage);
+            loadAdjProducts();
             showSuccess('Berhasil', data.message);
         })
         .catch(() => { errEl.textContent = 'Gagal terhubung ke server'; errEl.style.display = 'flex'; });
@@ -222,6 +223,7 @@ function deleteAdj(id) {
             .then(data => {
                 if (data.error) { showSuccess('Gagal', data.error); return; }
                 loadAdj(currentAdjPage);
+                loadAdjProducts();
                 showSuccess('Berhasil', data.message);
             })
             .catch(() => showSuccess('Error', 'Gagal terhubung ke server'));

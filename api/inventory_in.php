@@ -164,6 +164,17 @@ if ($method === 'DELETE') {
         exit;
     }
 
+    $stmt = $pdo->prepare("SELECT current_stock FROM products WHERE product_code = ?");
+    $stmt->execute([$item['product_code']]);
+    $product = $stmt->fetch();
+    $remainingStock = $product ? (int)$product['current_stock'] : 0;
+
+    if ($remainingStock < $item['quantity']) {
+        http_response_code(400);
+        echo json_encode(['error' => "Tidak dapat menghapus pemasukan stok {$item['quantity']} karena stok saat ini ($remainingStock) sudah digunakan oleh transaksi lain (penjualan/penyesuaian). Hapus transaksi terkait terlebih dahulu."]);
+        exit;
+    }
+
     $pdo->beginTransaction();
     try {
         $pdo->prepare("DELETE FROM stock_mutations WHERE reference_type = 'stock_in' AND reference_id = ?")->execute([$id]);
