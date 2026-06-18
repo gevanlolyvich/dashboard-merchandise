@@ -33,7 +33,7 @@ if ($type === 'stats') {
     $stmt = $pdo->query("SELECT COALESCE(SUM(quantity), 0) FROM stock_in WHERE MONTH(received_date) = MONTH(CURRENT_DATE) AND YEAR(received_date) = YEAR(CURRENT_DATE)");
     $inThisMonth = (int)$stmt->fetchColumn();
 
-    $outThisMonth = $pdo->query("SELECT COALESCE(SUM(ABS(quantity)), 0) FROM stock_mutations WHERE mutation_type != 'masuk' AND MONTH(created_at) = MONTH(CURRENT_DATE) AND YEAR(created_at) = YEAR(CURRENT_DATE)")->fetchColumn();
+    $outThisMonth = $pdo->query("SELECT COALESCE(SUM(ABS(quantity)), 0) FROM stock_mutations WHERE quantity < 0 AND MONTH(created_at) = MONTH(CURRENT_DATE) AND YEAR(created_at) = YEAR(CURRENT_DATE)")->fetchColumn();
 
     $lowStock = $pdo->query("SELECT COUNT(*) FROM products WHERE status = 'active' AND current_stock BETWEEN 1 AND 9")->fetchColumn();
     $criticalStock = $pdo->query("SELECT COUNT(*) FROM products WHERE status = 'active' AND current_stock BETWEEN 10 AND 20")->fetchColumn();

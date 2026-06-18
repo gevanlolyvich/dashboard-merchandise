@@ -37,6 +37,7 @@ $routeMap = [
     'bumd-customers' => 'bumd-customers',
     'merchandise-jff-import' => 'merchandise-jff-import',
     'merchandise-jff-dashboard' => 'merchandise-jff-dashboard',
+    'users' => 'users',
 ];
 
 $isAdminRoute = preg_match('#^admin/[a-zA-Z0-9_-]+$#', $url);

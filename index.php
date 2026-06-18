@@ -36,6 +36,7 @@ $pageTitleMap = [
     'bumd-customers' => 'Master BUMD',
     'merchandise-jff-import' => 'Pemasukan Data Excel',
     'merchandise-jff-dashboard' => 'Dashboard Rekap Merchandise JFF',
+    'users' => 'Manajemen User',
 ];
 
 $pageFileMap = [
@@ -60,6 +61,7 @@ $pageFileMap = [
     'bumd-customers' => 'pages/bumd-customers.php',
     'merchandise-jff-import' => 'pages/merchandise-jff-import.php',
     'merchandise-jff-dashboard' => 'pages/merchandise-jff-dashboard.php',
+    'users' => 'pages/users.php',
 ];
 
 $pageTitle = $pageTitleMap[$currentPage] ?? 'Dashboard Merchandise';
@@ -73,6 +75,12 @@ if (!$pageFile || !file_exists(__DIR__ . '/' . $pageFile)) {
 
 $inventoryPages = ['products', 'stock-in', 'stock-mutations', 'stock-adjustments', 'refund'];
 if (in_array($currentPage, $inventoryPages) && $userRole === 'user') {
+    $currentPage = 'summary';
+    $pageTitle = 'Executive Summary';
+    $pageFile = 'pages/summary.php';
+}
+
+if ($currentPage === 'users' && $userRole !== 'superadmin') {
     $currentPage = 'summary';
     $pageTitle = 'Executive Summary';
     $pageFile = 'pages/summary.php';
@@ -100,6 +108,7 @@ $pageSubMap = [
     'bumd-customers' => 'Data perusahaan daerah',
     'merchandise-jff-import' => 'Import file Excel rekap merchandise JFF',
     'merchandise-jff-dashboard' => 'Dashboard dan analisis rekap merchandise JFF',
+    'users' => 'Kelola seluruh user yang terdaftar',
 ];
 
 $pageSub = $pageSubMap[$currentPage] ?? '';
@@ -263,7 +272,7 @@ $pageSub = $pageSubMap[$currentPage] ?? '';
 
         <main class="main">
 
-            <?php if (!in_array($currentPage, ['stock-in', 'stock-adjustments', 'refund', 'products', 'opd-customers', 'bumd-customers', 'sales-opd', 'sales-bumd', 'merchandise-jff-import', 'merchandise-jff-dashboard', 'marketplace-dashboard'])): ?>
+            <?php if (!in_array($currentPage, ['stock-in', 'stock-adjustments', 'refund', 'products', 'opd-customers', 'bumd-customers', 'sales-opd', 'sales-bumd', 'merchandise-jff-import', 'merchandise-jff-dashboard', 'marketplace-dashboard', 'users'])): ?>
                 <div class="page-header">
                     <div>
                         <div class="page-title"><?= htmlspecialchars($pageTitle) ?></div>

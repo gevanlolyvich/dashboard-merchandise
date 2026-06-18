@@ -140,8 +140,8 @@ function navIcon($type)
 
     <?php if ($userRole === 'superadmin'): ?>
         <div class="sidebar-section-label">Admin</div>
-        <a href="<?= BASE_URL ?>/admin/users"
-            class="nav-item <?= basename($_SERVER['PHP_SELF']) == 'users.php' ? 'active' : '' ?>">
+        <a href="<?= BASE_URL ?>/users"
+            class="nav-item <?= $currentPage == 'users' ? 'active' : '' ?>">
             <span class="nav-icon"><?= navIcon('user') ?></span>
             <span>User</span>
         </a>

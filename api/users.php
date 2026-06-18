@@ -12,8 +12,21 @@ require_once __DIR__ . '/db.php';
 
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
-// ---- GET: List all users ----
+// ---- GET: List all users or single user ----
 if ($method === 'GET') {
+  $getId = (int)($_GET['id'] ?? 0);
+  if ($getId > 0) {
+    $stmt = $pdo->prepare("SELECT id, username, display_name, role, created_at FROM users WHERE id = ?");
+    $stmt->execute([$getId]);
+    $user = $stmt->fetch();
+    if (!$user) {
+      http_response_code(404);
+      echo json_encode(['error' => 'User tidak ditemukan']);
+      exit;
+    }
+    echo json_encode(['item' => $user]);
+    exit;
+  }
   $stmt = $pdo->query("SELECT id, username, display_name, role, created_at FROM users ORDER BY id ASC");
   $users = $stmt->fetchAll();
   echo json_encode(['users' => $users]);
