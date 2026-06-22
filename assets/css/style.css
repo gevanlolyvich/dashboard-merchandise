@@ -1621,6 +1621,25 @@ html.dark .login-input-wrap input { background: var(--surface-soft); }
 
 .btn-danger:hover { background: var(--danger); color: white; }
 
+.btn-success {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 40px;
+    padding: 0 16px;
+    border: none;
+    background: var(--success-dim);
+    color: var(--success);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    font-family: var(--font);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 150ms;
+}
+
+.btn-success:hover { background: var(--success); color: white; }
+
 .btn-edit {
     display: inline-flex;
     align-items: center;

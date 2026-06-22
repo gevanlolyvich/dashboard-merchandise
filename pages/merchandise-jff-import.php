@@ -12,6 +12,7 @@
             <input type="file" id="excelFileInput" accept=".xlsx,.xls" style="width:100%;padding:8px 12px;border:1px solid var(--outline);border-radius:6px;background:var(--surface-elevated);color:var(--on-surface);font-size:0.875rem;">
         </div>
         <button class="btn-primary" onclick="importExcel()" style="margin-top:22px;height:40px;" id="importBtn">Import Data</button>
+        <button class="btn-success" onclick="exportTemplate()" style="margin-top:22px;height:40px;" id="exportBtn">Export Template</button>
         <button class="btn-danger" onclick="clearData()" style="margin-top:22px;height:40px;" id="clearBtn">Hapus Semua Data</button>
     </div>
     <div id="importStatus" style="margin-top:12px;font-size:0.875rem;color:var(--on-surface-muted);"></div>
@@ -28,12 +29,12 @@
                     <th>Nama Barang</th>
                     <th>Ukuran</th>
                     <th>HPP</th>
-                    <th>Harga Ritel</th>
+                    <th>Harga Institusi</th>
                     <th>Stok Awal</th>
                     <th>Barang Masuk</th>
                     <th>Terjual</th>
                     <th>Stok Akhir</th>
-                    <th>Pendapatan</th>
+                    <th>Total Pendapatan</th>
                 </tr>
             </thead>
             <tbody id="jffTableBody"></tbody>
@@ -78,6 +79,10 @@ function importExcel() {
         });
 }
 
+function exportTemplate() {
+    window.location.href = API_BASE + '/merchandise_jff.php?export=template';
+}
+
 function clearData() {
     showConfirm('Hapus Semua Data', 'Yakin ingin menghapus semua data merchandise JFF?', 'Ya, Hapus', function() {
         fetch(API_BASE + '/merchandise_jff.php', { method: 'DELETE', credentials: 'include' })
@@ -110,12 +115,12 @@ function loadJffData() {
                     <td>${item.nama_barang || '-'}</td>
                     <td>${item.ukuran_varian || '-'}</td>
                     <td>${formatRupiah(item.hpp)}</td>
-                    <td>${formatRupiah(item.harga_ritel)}</td>
+                    <td>${formatRupiah(item.harga_institusi)}</td>
                     <td>${item.stok_awal}</td>
                     <td>${item.barang_masuk}</td>
                     <td>${item.barang_terjual}</td>
                     <td><strong>${item.stok_akhir}</strong></td>
-                    <td>${formatRupiah(item.pendapatan)}</td>
+                    <td>${formatRupiah((parseFloat(item.pendapatan)||0) + (parseFloat(item.pendapatan_2)||0) + (parseFloat(item.pendapatan_3)||0))}</td>
                 </tr>`;
             }).join('');
         })

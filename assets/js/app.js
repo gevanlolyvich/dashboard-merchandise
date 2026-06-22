@@ -1,40 +1,8 @@
 // ===== DATA =====
-const products = [
-    { name: 'Kaos Jakarta', qty: 1200, omzet: 120000000, category: 'Apparel', stock: 150 },
-    { name: 'Tumbler', qty: 900, omzet: 130000000, category: 'Drinkware', stock: 200 },
-    { name: 'Tote Bag', qty: 700, omzet: 56000000, category: 'Bag', stock: 300 },
-    { name: 'Jaket', qty: 500, omzet: 150000000, category: 'Apparel', stock: 80 },
-    { name: 'Topi', qty: 450, omzet: 36000000, category: 'Apparel', stock: 120 },
-    { name: 'Mug', qty: 400, omzet: 32000000, category: 'Drinkware', stock: 250 },
-    { name: 'Stiker', qty: 380, omzet: 7600000, category: 'Aksesoris', stock: 500 },
-    { name: 'Gantungan Kunci', qty: 350, omzet: 7000000, category: 'Aksesoris', stock: 400 },
-    { name: 'Notebook', qty: 300, omzet: 15000000, category: 'Aksesoris', stock: 180 },
-    { name: 'Payung', qty: 280, omzet: 28000000, category: 'Aksesoris', stock: 90 },
-    { name: 'Syal', qty: 200, omzet: 20000000, category: 'Apparel', stock: 60 },
-    { name: 'Bantal Leher', qty: 150, omzet: 22500000, category: 'Aksesoris', stock: 40 }
-];
-const opdData = [
-    { name: 'Dinas Pariwisata', omzet: 150000000, order: 30 },
-    { name: 'Dinas Pendidikan', omzet: 120000000, order: 25 },
-    { name: 'Dinas Kesehatan', omzet: 95000000, order: 20 },
-    { name: 'Dinas PUPR', omzet: 80000000, order: 15 },
-    { name: 'Dinas Perhubungan', omzet: 65000000, order: 12 }
-];
-const divisiData = [
-    { name: 'Pemasaran', count: 180 },
-    { name: 'Operasional', count: 120 },
-    { name: 'Keuangan', count: 95 },
-    { name: 'SDM', count: 80 },
-    { name: 'IT', count: 65 }
-];
-const monthlyData = [
-    { month: 'Jan', value: 62000000 }, { month: 'Feb', value: 45000000 },
-    { month: 'Mar', value: 78000000 }, { month: 'Apr', value: 85000000 },
-    { month: 'Mei', value: 92000000 }, { month: 'Jun', value: 105000000 },
-    { month: 'Jul', value: 98000000 }, { month: 'Agu', value: 112000000 },
-    { month: 'Sep', value: 128000000 }, { month: 'Okt', value: 135000000 },
-    { month: 'Nov', value: 160000000 }, { month: 'Des', value: 180000000 }
-];
+const products = [];
+const opdData = [];
+const divisiData = [];
+const monthlyData = [];
 
 function fmtIDR(n) {
     if (n >= 1e9) return 'Rp ' + (n / 1e9).toFixed(1) + ' M';
@@ -214,6 +182,16 @@ function renderProducts() {
     const slowMovingList = document.getElementById('slowMovingList');
     const summaryList    = document.getElementById('summaryProductList');
 
+    const emptyHtml = '<div style="padding:16px;text-align:center;color:var(--on-surface-muted);">Tidak ada data</div>';
+
+    if (products.length === 0) {
+        if (topQtyList)     topQtyList.innerHTML   = emptyHtml;
+        if (topOmzetList)   topOmzetList.innerHTML = emptyHtml;
+        if (summaryList)    summaryList.innerHTML  = emptyHtml;
+        if (slowMovingList) slowMovingList.innerHTML = emptyHtml;
+        return;
+    }
+
     const byQty   = [...products].sort((a, b) => b.qty - a.qty).slice(0, 10);
     const byOmzet = [...products].sort((a, b) => b.omzet - a.omzet).slice(0, 10);
     const slow    = products.filter(p => p.stock > 100 && p.qty < 300);
@@ -247,36 +225,51 @@ function renderCustomers() {
     const divisiList    = document.getElementById('divisiList');
     const summaryOpd    = document.getElementById('summaryOpdList');
 
-    const sorted  = [...opdData].sort((a, b) => b.omzet - a.omzet);
-    const avClass = i => i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+    const emptyHtml = '<div style="padding:16px;text-align:center;color:var(--on-surface-muted);">Tidak ada data</div>';
 
-    const opdRowHtml = (list) => list.map((o, i) =>
-        `<div class="cust-row">
-            <div class="avatar ${avClass(i)}">${i + 1}</div>
-            <div class="info"><div class="name">${o.name}</div><div class="sub">${fmtNum(o.order)} order</div></div>
-            <div class="amount">${fmtIDR(o.omzet)}</div>
-        </div>`
-    ).join('');
+    if (opdData.length === 0) {
+        if (opdRanking) opdRanking.innerHTML = emptyHtml;
+        if (summaryOpd) summaryOpd.innerHTML = emptyHtml;
+    } else {
+        const sorted  = [...opdData].sort((a, b) => b.omzet - a.omzet);
+        const avClass = i => i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
 
-    if (opdRanking) opdRanking.innerHTML = opdRowHtml(sorted);
-    if (summaryOpd) summaryOpd.innerHTML = opdRowHtml(sorted.slice(0, 4));
-
-    if (divisiList) {
-        const sd = [...divisiData].sort((a, b) => b.count - a.count);
-        const mc = sd[0].count;
-        divisiList.innerHTML = sd.map(d =>
-            `<div class="product-row">
-                <div class="info"><div class="name">${d.name}</div>
-                <div class="bar-wrap"><div class="bar-fill blue" style="width:${d.count / mc * 100}%"></div></div></div>
-                <div class="value">${fmtNum(d.count)}</div>
+        const opdRowHtml = (list) => list.map((o, i) =>
+            `<div class="cust-row">
+                <div class="avatar ${avClass(i)}">${i + 1}</div>
+                <div class="info"><div class="name">${o.name}</div><div class="sub">${fmtNum(o.order)} order</div></div>
+                <div class="amount">${fmtIDR(o.omzet)}</div>
             </div>`
         ).join('');
+
+        if (opdRanking) opdRanking.innerHTML = opdRowHtml(sorted);
+        if (summaryOpd) summaryOpd.innerHTML = opdRowHtml(sorted.slice(0, 4));
+    }
+
+    if (divisiList) {
+        if (divisiData.length === 0) {
+            divisiList.innerHTML = emptyHtml;
+        } else {
+            const sd = [...divisiData].sort((a, b) => b.count - a.count);
+            const mc = sd[0].count;
+            divisiList.innerHTML = sd.map(d =>
+                `<div class="product-row">
+                    <div class="info"><div class="name">${d.name}</div>
+                    <div class="bar-wrap"><div class="bar-fill blue" style="width:${d.count / mc * 100}%"></div></div></div>
+                    <div class="value">${fmtNum(d.count)}</div>
+                </div>`
+            ).join('');
+        }
     }
 }
 
 function renderInventory() {
     const reorderGrid = document.getElementById('reorderGrid');
     if (!reorderGrid) return;
+    if (products.length === 0) {
+        reorderGrid.innerHTML = '<div style="padding:16px;text-align:center;color:var(--on-surface-muted);">Tidak ada data</div>';
+        return;
+    }
     const alerts = products.filter(p => p.stock > 0 && p.stock <= 80).sort((a, b) => a.stock - b.stock);
     reorderGrid.innerHTML = alerts.map(a =>
         `<div class="inv-card ${a.stock <= 50 ? 'out' : 'low'}">
@@ -345,6 +338,8 @@ function initCharts() {
     if (summaryTrend) {
         const ctx = summaryTrend.getContext('2d');
         const h   = summaryTrend.parentElement.offsetHeight || 300;
+        const ml  = monthlyData.length > 0 ? monthlyData.map(m => m.month) : ['Jan'];
+        const mv  = monthlyData.length > 0 ? monthlyData.map(m => m.value / 1e6) : [0];
         const grad = ctx.createLinearGradient(0, 0, 0, h);
         grad.addColorStop(0,   'rgba(249,115,22,0.18)');
         grad.addColorStop(0.65,'rgba(249,115,22,0.04)');
@@ -353,15 +348,15 @@ function initCharts() {
         charts.summaryTrend = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: monthlyData.map(m => m.month),
+                labels: ml,
                 datasets: [{
                     label: 'Penjualan (Rp juta)',
-                    data: monthlyData.map(m => m.value / 1e6),
-                    borderColor: '#F97316',
+                    data: mv,
+                    borderColor: monthlyData.length > 0 ? '#F97316' : '#E5E7EB',
                     backgroundColor: grad,
                     fill: true,
                     tension: 0.4,
-                    pointBackgroundColor: '#F97316',
+                    pointBackgroundColor: monthlyData.length > 0 ? '#F97316' : '#E5E7EB',
                     pointBorderColor: pointBg,
                     pointBorderWidth: 2.5,
                     pointRadius: 4,
@@ -387,6 +382,7 @@ function initCharts() {
                     ...sharedScaleOpts(),
                     y: {
                         ...sharedScaleOpts().y,
+                        beginAtZero: true,
                         ticks: {
                             ...sharedScaleOpts().y.ticks,
                             callback: v => 'Rp ' + v + ' jt'
@@ -403,10 +399,10 @@ function initCharts() {
         charts.summaryChannel = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['OPD Jakarta', 'Karyawan', 'Marketplace'],
+                labels: ['Belum ada data'],
                 datasets: [{
-                    data: [60, 25, 15],
-                    backgroundColor: ['#F97316', '#3B82F6', '#10B981'],
+                    data: [1],
+                    backgroundColor: ['#374151'],
                     borderWidth: 0,
                     hoverOffset: 6
                 }]
@@ -426,7 +422,7 @@ function initCharts() {
                             color: text
                         }
                     },
-                    tooltip: tt
+                    tooltip: { ...tt, callbacks: { label: () => ' 0' } }
                 }
             }
         });
@@ -442,12 +438,12 @@ function initCharts() {
         charts.summaryKat = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: kl,
+                labels: kl.length > 0 ? kl : ['Belum ada data'],
                 datasets: [{
                     label: 'Unit',
-                    data: kv,
-                    backgroundColor: kl.map((_, i) => barColors[i % barColors.length] + '99'),
-                    hoverBackgroundColor: kl.map((_, i) => barColors[i % barColors.length]),
+                    data: kv.length > 0 ? kv : [0],
+                    backgroundColor: kl.length > 0 ? kl.map((_, i) => barColors[i % barColors.length] + '99') : ['#E5E7EB'],
+                    hoverBackgroundColor: kl.length > 0 ? kl.map((_, i) => barColors[i % barColors.length]) : ['#E5E7EB'],
                     borderRadius: 6,
                     borderSkipped: false
                 }]
@@ -467,8 +463,8 @@ function initCharts() {
         charts.channel = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['OPD Jakarta', 'Karyawan', 'Marketplace'],
-                datasets: [{ data: [60, 25, 15], backgroundColor: ['#F97316', '#3B82F6', '#10B981'], borderWidth: 0, hoverOffset: 6 }]
+                labels: ['Belum ada data'],
+                datasets: [{ data: [1], backgroundColor: ['#E5E7EB'], borderWidth: 0, hoverOffset: 6 }]
             },
             options: {
                 responsive: true, maintainAspectRatio: false, cutout: '68%',
@@ -487,11 +483,11 @@ function initCharts() {
         charts.kategori = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: kl,
+                labels: kl.length > 0 ? kl : ['Belum ada data'],
                 datasets: [{
-                    label: 'Unit', data: kv,
-                    backgroundColor: kl.map((_, i) => barColors[i % barColors.length] + '99'),
-                    hoverBackgroundColor: kl.map((_, i) => barColors[i % barColors.length]),
+                    label: 'Unit', data: kv.length > 0 ? kv : [0],
+                    backgroundColor: kl.length > 0 ? kl.map((_, i) => barColors[i % barColors.length] + '99') : ['#E5E7EB'],
+                    hoverBackgroundColor: kl.length > 0 ? kl.map((_, i) => barColors[i % barColors.length]) : ['#E5E7EB'],
                     borderRadius: 6, borderSkipped: false
                 }]
             },
@@ -505,9 +501,9 @@ function initCharts() {
 
     // ---- OPD Horizontal Bar ----
     if (opdChart) {
-        const ol  = opdData.map(o => o.name.replace('Dinas ', ''));
-        const ov  = opdData.map(o => o.omzet / 1e6);
         const ctx = opdChart.getContext('2d');
+        const ol  = opdData.length > 0 ? opdData.map(o => o.name.replace('Dinas ', '')) : ['Belum ada data'];
+        const ov  = opdData.length > 0 ? opdData.map(o => o.omzet / 1e6) : [0];
         charts.opd = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -534,6 +530,8 @@ function initCharts() {
     if (trendChart) {
         const ctx  = trendChart.getContext('2d');
         const h    = trendChart.parentElement.offsetHeight || 280;
+        const ml   = monthlyData.length > 0 ? monthlyData.map(m => m.month) : ['Jan'];
+        const mv   = monthlyData.length > 0 ? monthlyData.map(m => m.value / 1e6) : [0];
         const grad = ctx.createLinearGradient(0, 0, 0, h);
         grad.addColorStop(0,   'rgba(249,115,22,0.18)');
         grad.addColorStop(0.7, 'rgba(249,115,22,0.02)');
@@ -542,14 +540,14 @@ function initCharts() {
         charts.trend = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: monthlyData.map(m => m.month),
+                labels: ml,
                 datasets: [{
                     label: 'Penjualan (Rp juta)',
-                    data: monthlyData.map(m => m.value / 1e6),
-                    borderColor: '#F97316',
+                    data: mv,
+                    borderColor: monthlyData.length > 0 ? '#F97316' : '#E5E7EB',
                     backgroundColor: grad,
                     fill: true, tension: 0.4,
-                    pointBackgroundColor: '#F97316', pointBorderColor: pointBg,
+                    pointBackgroundColor: monthlyData.length > 0 ? '#F97316' : '#E5E7EB', pointBorderColor: pointBg,
                     pointBorderWidth: 2.5, pointRadius: 4, pointHoverRadius: 7, borderWidth: 2.5
                 }]
             },
@@ -559,7 +557,7 @@ function initCharts() {
                 plugins: { legend: { display: false }, tooltip: { ...tt, callbacks: { label: ctx => ` Rp ${ctx.parsed.y.toFixed(0)} juta` } } },
                 scales: {
                     ...sharedScaleOpts(),
-                    y: { ...sharedScaleOpts().y, ticks: { ...sharedScaleOpts().y.ticks, callback: v => 'Rp ' + v + ' jt' } }
+                    y: { ...sharedScaleOpts().y, beginAtZero: true, ticks: { ...sharedScaleOpts().y.ticks, callback: v => 'Rp ' + v + ' jt' } }
                 }
             }
         });
@@ -573,8 +571,8 @@ function initCharts() {
         charts.mkpOrder = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['Shopee', 'Tokopedia'],
-                datasets: [{ data: [450, 150], backgroundColor: ['#EE4D2D', '#00AA5B'], borderWidth: 0, hoverOffset: 6 }]
+                labels: ['Belum ada data'],
+                datasets: [{ data: [1], backgroundColor: ['#E5E7EB'], borderWidth: 0, hoverOffset: 6 }]
             },
             options: {
                 responsive: true, maintainAspectRatio: false, cutout: '65%',
@@ -592,8 +590,8 @@ function initCharts() {
         charts.mkpOmzet = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['Shopee', 'Tokopedia'],
-                datasets: [{ data: [150, 50], backgroundColor: ['#EE4D2D', '#00AA5B'], borderWidth: 0, hoverOffset: 6 }]
+                labels: ['Belum ada data'],
+                datasets: [{ data: [1], backgroundColor: ['#E5E7EB'], borderWidth: 0, hoverOffset: 6 }]
             },
             options: {
                 responsive: true, maintainAspectRatio: false, cutout: '65%',

@@ -24,24 +24,24 @@
                 <tbody>
                     <tr>
                         <td>OPD Jakarta</td>
-                        <td>120</td>
-                        <td>5.000</td>
-                        <td><strong>Rp 700 jt</strong></td>
-                        <td><span class="badge badge-orange">60%</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>Rp 0</strong></td>
+                        <td><span class="badge badge-orange">0%</span></td>
                     </tr>
                     <tr>
                         <td>Karyawan</td>
-                        <td>350</td>
-                        <td>1.500</td>
-                        <td><strong>Rp 300 jt</strong></td>
-                        <td><span class="badge badge-neutral">25%</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>Rp 0</strong></td>
+                        <td><span class="badge badge-neutral">0%</span></td>
                     </tr>
                     <tr>
                         <td>Marketplace</td>
-                        <td>600</td>
-                        <td>1.390</td>
-                        <td><strong>Rp 200 jt</strong></td>
-                        <td><span class="badge badge-blue">15%</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>Rp 0</strong></td>
+                        <td><span class="badge badge-blue">0%</span></td>
                     </tr>
                 </tbody>
             </table>

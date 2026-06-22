@@ -19,9 +19,9 @@
         </div>
         <div style="text-align:center;padding:12px 0;">
             <div style="font-size:0.8125rem;color:var(--on-surface-muted);">Penjualan tertinggi</div>
-            <div style="font-size:2.5rem;font-weight:700;color:var(--on-bg);margin:6px 0;">Desember</div>
-            <div style="font-size:1.125rem;font-weight:700;color:var(--primary-strong);">Rp 180 Juta</div>
-            <div style="font-size:0.8125rem;color:var(--on-surface-muted);margin-top:6px;">Musim ramai: Nov — Des</div>
+            <div style="font-size:2.5rem;font-weight:700;color:var(--on-bg);margin:6px 0;">—</div>
+            <div style="font-size:1.125rem;font-weight:700;color:var(--primary-strong);">Rp 0</div>
+            <div style="font-size:0.8125rem;color:var(--on-surface-muted);margin-top:6px;">—</div>
         </div>
     </div>
     <div class="card" style="border-top:3px solid var(--danger);">
@@ -30,9 +30,9 @@
         </div>
         <div style="text-align:center;padding:12px 0;">
             <div style="font-size:0.8125rem;color:var(--on-surface-muted);">Penjualan terendah</div>
-            <div style="font-size:2.5rem;font-weight:700;color:var(--on-bg);margin:6px 0;">Februari</div>
-            <div style="font-size:1.125rem;font-weight:700;color:var(--danger);">Rp 45 Juta</div>
-            <div style="font-size:0.8125rem;color:var(--on-surface-muted);margin-top:6px;">Sepi setelah liburan</div>
+            <div style="font-size:2.5rem;font-weight:700;color:var(--on-bg);margin:6px 0;">—</div>
+            <div style="font-size:1.125rem;font-weight:700;color:var(--danger);">Rp 0</div>
+            <div style="font-size:0.8125rem;color:var(--on-surface-muted);margin-top:6px;">—</div>
         </div>
     </div>
 </div>

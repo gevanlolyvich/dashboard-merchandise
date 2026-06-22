@@ -103,8 +103,8 @@
 
 
 <script>
-    const API_COUNT = 'http://172.16.0.17:3100/api/v1/ginee/orders/count';
-    const API_ORDERS = 'http://172.16.0.17:3100/api/v1/ginee/orders?page=0&size=100';
+    const API_COUNT = 'api/ginee-proxy.php/orders/count';
+    const API_ORDERS = 'api/ginee-proxy.php/orders?page=0&size=100';
 
     const CHANNEL_LABELS = { TIKTOK_ID: 'TikTok Shop', TOKOPEDIA_ID: 'Tokopedia', SHOPEE_ID: 'Shopee' };
     const CHANNEL_COLORS = { TIKTOK_ID: '#010101', TOKOPEDIA_ID: '#00AA5B', SHOPEE_ID: '#EE4D2D' };

@@ -56,18 +56,7 @@ function loadOpdRanking() {
             }
         })
         .catch(() => {
-            const opdData = [
-                { name: 'Dinas Pariwisata', omzet: 150000000, order: 30 },
-                { name: 'Dinas Pendidikan', omzet: 120000000, order: 25 },
-                { name: 'Dinas Kesehatan', omzet: 95000000, order: 20 },
-                { name: 'Dinas PUPR', omzet: 80000000, order: 15 },
-                { name: 'Dinas Perhubungan', omzet: 65000000, order: 12 }
-            ];
-            const sorted = opdData.sort((a, b) => b.omzet - a.omzet);
-            el.innerHTML = sorted.map((o, i) => {
-                const cls = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-                return `<div class="cust-row"><div class="avatar ${cls}">${i + 1}</div><div class="info"><div class="name">${o.name}</div><div class="sub">${o.order} order</div></div><div class="amount">Rp ${(o.omzet / 1e6).toFixed(0)} jt</div></div>`;
-            }).join('');
+            el.innerHTML = '<div style="padding:16px;text-align:center;color:var(--on-surface-muted);">Tidak ada data</div>';
         });
 }
 
@@ -97,17 +86,7 @@ function loadBumdRanking() {
             }
         })
         .catch(() => {
-            const bumdData = [
-                { name: 'Bank DKI', omzet: 200000000, order: 18 },
-                { name: 'PDAM Jaya', omzet: 140000000, order: 12 },
-                { name: 'Perumda Pembangunan', omzet: 90000000, order: 8 },
-                { name: 'Perumda Pasar Jaya', omzet: 70000000, order: 6 },
-            ];
-            const sorted = bumdData.sort((a, b) => b.omzet - a.omzet);
-            el.innerHTML = sorted.map((o, i) => {
-                const cls = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-                return `<div class="cust-row"><div class="avatar ${cls}">${i + 1}</div><div class="info"><div class="name">${o.name}</div><div class="sub">${o.order} transaksi</div></div><div class="amount">Rp ${(o.omzet / 1e6).toFixed(0)} jt</div></div>`;
-            }).join('');
+            el.innerHTML = '<div style="padding:16px;text-align:center;color:var(--on-surface-muted);">Tidak ada data</div>';
         });
 }
 
@@ -135,7 +114,7 @@ function loadOpdChart() {
             throw new Error();
         })
         .catch(() => {
-            renderHorizontalChart(canvas, ['Pariwisata', 'Pendidikan', 'Kesehatan', 'PUPR', 'Perhubungan'], [150, 120, 95, 80, 65], 'Omzet (jt)');
+            renderHorizontalChart(canvas, ['Tidak ada data'], [0], 'Omzet (jt)');
         });
 }
 
@@ -163,7 +142,7 @@ function loadBumdChart() {
             throw new Error();
         })
         .catch(() => {
-            renderHorizontalChart(canvas, ['Bank DKI', 'PDAM Jaya', 'Perumda', 'Pasar Jaya'], [200, 140, 90, 70], 'Omzet (jt)');
+            renderHorizontalChart(canvas, ['Tidak ada data'], [0], 'Omzet (jt)');
         });
 }
 

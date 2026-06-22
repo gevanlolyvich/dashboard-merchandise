@@ -6,7 +6,7 @@
 </div>
 
 <script>
-    const API_ORDERS = 'http://172.16.0.17:3100/api/v1/ginee/orders';
+    const API_ORDERS = 'api/ginee-proxy.php/orders';
 
     function fmtRupiah(n) {
         return 'Rp ' + Number(n).toLocaleString('id-ID');
