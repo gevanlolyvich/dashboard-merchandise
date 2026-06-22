@@ -1,0 +1,12 @@
+[2026-06-22 07:13:40] [info] === Sync Products dimulai ===
+[2026-06-22 07:13:40] [warning] Endpoint /product tidak tersedia atau gagal: HTTP 429: Too many requests, please try again later
+[2026-06-22 07:13:40] [info] Sync Products di-skip (non-fatal)
+[2026-06-22 08:45:43] [info] === Sync Products dimulai ===
+[2026-06-22 08:45:43] [warning] Endpoint /product tidak tersedia atau gagal: HTTP 429: Too many requests, please try again later
+[2026-06-22 08:45:43] [info] Sync Products di-skip (non-fatal)
+[2026-06-22 09:09:07] [info] === Sync Products dimulai ===
+[2026-06-22 09:09:07] [warning] Endpoint /product tidak tersedia atau gagal: HTTP 429: Too many requests, please try again later
+[2026-06-22 09:09:07] [info] Sync Products di-skip (non-fatal)
+[2026-06-22 09:37:04] [info] === Sync Products dimulai ===
+[2026-06-22 09:37:04] [warning] Endpoint /product tidak tersedia atau gagal: HTTP 404: Cannot GET /api/v1/ginee/product
+[2026-06-22 09:37:04] [info] Sync Products di-skip (non-fatal)

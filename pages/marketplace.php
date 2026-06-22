@@ -6,7 +6,7 @@
 </div>
 
 <script>
-    const API_ORDERS = 'api/ginee-proxy.php/orders';
+    const API_ORDERS = 'api/orders.php';
 
     function fmtRupiah(n) {
         return 'Rp ' + Number(n).toLocaleString('id-ID');
@@ -73,7 +73,7 @@
                 renderOrders(res.data);
             })
             .catch(err => {
-                root.innerHTML = '<div class="mkp-error">Gagal terhubung ke server Ginee API<button class="btn-retry" onclick="loadOrders()">Coba Lagi</button></div>';
+                root.innerHTML = '<div class="mkp-error">Gagal memuat data marketplace<button class="btn-retry" onclick="loadOrders()">Coba Lagi</button></div>';
             });
     }
 

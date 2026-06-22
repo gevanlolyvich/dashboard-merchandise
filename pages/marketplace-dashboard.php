@@ -1,6 +1,13 @@
-<div class="page-header" style="display:none"></div>
 <div class="section-headline"><span class="emoji">📊</span> Marketplace Dashboard</div>
-<div class="page-sub" style="margin-bottom:24px">Executive Monitoring — Marketplace &amp; Order Health Overview</div>
+<div class="page-sub" style="margin-bottom:16px">Executive Monitoring — Marketplace &amp; Order Health Overview</div>
+
+<!-- Filter Periode -->
+<div class="md-filter-bar">
+    <button class="md-filter-btn active" data-period="today" onclick="setPeriod('today')">Hari Ini</button>
+    <button class="md-filter-btn" data-period="7d" onclick="setPeriod('7d')">7 Hari</button>
+    <button class="md-filter-btn" data-period="30d" onclick="setPeriod('30d')">30 Hari</button>
+    <button class="md-filter-btn" data-period="this-year" onclick="setPeriod('this-year')">Tahun Ini</button>
+</div>
 
 <div id="md-dashboard">
     <div id="md-error" class="md-error" style="display:none">
@@ -100,11 +107,42 @@
     </div>
 </div>
 
-
+<style>
+.md-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+    padding: 10px 14px;
+    background: var(--card-bg, #fff);
+    border-radius: 10px;
+    border: 1px solid var(--border, #e5e7eb);
+}
+.md-filter-btn {
+    padding: 6px 16px;
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 8px;
+    background: transparent;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--on-surface-muted, #6b7280);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.md-filter-btn:hover {
+    border-color: var(--primary, #f97316);
+    color: var(--primary, #f97316);
+}
+.md-filter-btn.active {
+    background: var(--primary, #f97316);
+    border-color: var(--primary, #f97316);
+    color: #fff;
+}
+</style>
 
 <script>
-    const API_COUNT = 'api/ginee-proxy.php/orders/count';
-    const API_ORDERS = 'api/ginee-proxy.php/orders?page=0&size=100';
+    const API_BASE_COUNT = 'api/orders.php?count=1';
+    const API_BASE_ORDERS = 'api/orders.php?page=0&size=100';
 
     const CHANNEL_LABELS = { TIKTOK_ID: 'TikTok Shop', TOKOPEDIA_ID: 'Tokopedia', SHOPEE_ID: 'Shopee' };
     const CHANNEL_COLORS = { TIKTOK_ID: '#010101', TOKOPEDIA_ID: '#00AA5B', SHOPEE_ID: '#EE4D2D' };
@@ -113,16 +151,91 @@
     const chartInstances = {};
     function destroyChart(key) { if (chartInstances[key]) { chartInstances[key].destroy(); delete chartInstances[key]; } }
     function fmtNum(n) { return Number(n).toLocaleString('id-ID'); }
+    function fmtRupiah(n) { return 'Rp ' + Number(n).toLocaleString('id-ID'); }
     function showEl(id, show) { const el = document.getElementById(id); if (el) el.style.display = show ? '' : 'none'; }
+
+    let currentPeriod = 'today';
+    let _requestId = 0;
+
+    function getDateRange(period) {
+        const today = new Date();
+        const y = today.getFullYear();
+        const m = String(today.getMonth() + 1).padStart(2, '0');
+        const d = String(today.getDate()).padStart(2, '0');
+        const todayStr = y + '-' + m + '-' + d;
+
+        switch (period) {
+            case 'today':
+                return { start: todayStr, end: todayStr };
+            case '7d': {
+                const d7 = new Date(today);
+                d7.setDate(d7.getDate() - 6);
+                const y7 = d7.getFullYear();
+                const m7 = String(d7.getMonth() + 1).padStart(2, '0');
+                const dd7 = String(d7.getDate()).padStart(2, '0');
+                return { start: y7 + '-' + m7 + '-' + dd7, end: todayStr };
+            }
+            case '30d': {
+                const d30 = new Date(today);
+                d30.setDate(d30.getDate() - 29);
+                const y30 = d30.getFullYear();
+                const m30 = String(d30.getMonth() + 1).padStart(2, '0');
+                const dd30 = String(d30.getDate()).padStart(2, '0');
+                return { start: y30 + '-' + m30 + '-' + dd30, end: todayStr };
+            }
+            case 'this-year':
+                return { start: y + '-01-01', end: todayStr };
+            default:
+                return null;
+        }
+    }
+
+    function setPeriod(period) {
+        currentPeriod = period;
+        document.querySelectorAll('.md-filter-btn').forEach(el => {
+            el.classList.toggle('active', el.dataset.period === period);
+        });
+        showSkeletons();
+        loadDashboard();
+    }
+
+    function showSkeletons() {
+        document.getElementById('mdKpiGrid').innerHTML = Array(6).fill('<div class="md-skeleton md-skeleton-kpi"></div>').join('');
+        document.querySelectorAll('.md-chart-container').forEach(c => {
+            const canvas = c.querySelector('canvas');
+            if (canvas) canvas.style.display = 'none';
+            const hasSkeleton = c.querySelector('.md-skeleton-chart');
+            if (!hasSkeleton) {
+                const sk = document.createElement('div');
+                sk.className = 'md-skeleton md-skeleton-chart';
+                c.prepend(sk);
+            }
+        });
+        document.getElementById('mdTimeline').innerHTML = Array(3).fill('<div class="md-skeleton md-skeleton-line"></div>').join('');
+        document.getElementById('mdTopProducts').innerHTML = Array(3).fill('<div class="md-skeleton md-skeleton-line"></div>').join('');
+    }
+
+    function buildUrl(base) {
+        const range = getDateRange(currentPeriod);
+        if (!range) return base;
+        return base + '&start_date=' + range.start + '&end_date=' + range.end;
+    }
 
     function loadDashboard() {
         showEl('md-error', false);
+        const reqId = ++_requestId;
+        const periodSnapshot = currentPeriod;
 
-        fetch(API_COUNT)
+        const countUrl = buildUrl(API_BASE_COUNT);
+        const ordersUrl = buildUrl(API_BASE_ORDERS);
+
+        fetch(countUrl)
             .then(r => r.json())
             .then(countRes => {
+                if (reqId !== _requestId) return;
                 if (!countRes || !countRes.success) throw new Error('Gagal muat');
-                return fetch(API_ORDERS).then(r => r.json()).then(ordersRes => {
+                return fetch(ordersUrl).then(r => r.json()).then(ordersRes => {
+                    if (reqId !== _requestId) return;
                     if (!ordersRes || !ordersRes.success) throw new Error('Gagal muat');
 
                     const orders = ordersRes.data.orders || [];
@@ -136,6 +249,7 @@
                 });
             })
             .catch(err => {
+                if (reqId !== _requestId) return;
                 console.error(err);
                 showEl('md-error', true);
                 document.getElementById('mdKpiGrid').innerHTML = '';
@@ -163,11 +277,26 @@
   `).join('');
     }
 
-    function fmtRupiah(n) { return 'Rp ' + Number(n).toLocaleString('id-ID'); }
-
     function getStatusGroup(os) {
         const m = { 'PENDING': 'Pending', 'PAID': 'Paid', 'READY_TO_SHIP': 'Ready To Ship', 'SHIPPING': 'Shipped', 'DELIVERED': 'Completed', 'CANCELLED': 'Cancelled', 'RETURNED': 'Refunded' };
         return m[(os || '').toUpperCase()] || os || 'Unknown';
+    }
+
+    function setChartEmpty(canvas, show) {
+        const parent = canvas.parentElement;
+        let emptyEl = parent.querySelector('.md-unavailable');
+        if (show) {
+            canvas.style.display = 'none';
+            if (!emptyEl) {
+                emptyEl = document.createElement('div');
+                emptyEl.className = 'md-unavailable';
+                emptyEl.textContent = 'Belum ada data';
+                parent.appendChild(emptyEl);
+            }
+        } else {
+            canvas.style.display = '';
+            if (emptyEl) emptyEl.remove();
+        }
     }
 
     function renderOrderStatusDonut(orders) {
@@ -176,12 +305,12 @@
         destroyChart('orderStatus');
         const parent = canvas.parentElement;
         parent.querySelectorAll('.md-skeleton').forEach(s => s.remove());
-        canvas.style.display = '';
 
         if (!orders || orders.length === 0) {
-            parent.innerHTML = '<div class="md-unavailable">Belum ada data</div>';
+            setChartEmpty(canvas, true);
             return;
         }
+        setChartEmpty(canvas, false);
 
         const groups = {};
         orders.forEach(o => { const k = getStatusGroup(o.orderStatus); groups[k] = (groups[k] || 0) + 1; });
@@ -208,12 +337,12 @@
         destroyChart('orderMarketplace');
         const parent = canvas.parentElement;
         parent.querySelectorAll('.md-skeleton').forEach(s => s.remove());
-        canvas.style.display = '';
 
         if (!orders || orders.length === 0) {
-            parent.innerHTML = '<div class="md-unavailable">Belum ada data</div>';
+            setChartEmpty(canvas, true);
             return;
         }
+        setChartEmpty(canvas, false);
 
         const groups = {};
         orders.forEach(o => {

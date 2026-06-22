@@ -220,3 +220,90 @@ CREATE TABLE IF NOT EXISTS refund_items (
 -- Drop old tables (migrated to new schema)
 DROP TABLE IF EXISTS inventory_in;
 DROP TABLE IF EXISTS inventory_out;
+
+-- ===================================================================
+-- TABEL SINKRONISASI — ditambahkan oleh sistem sync service
+-- Digunakan untuk menyimpan cache data dari Swagger/Ginee API
+-- ===================================================================
+
+-- Ringkasan order (dari /orders/count)
+CREATE TABLE IF NOT EXISTS sync_order_summary (
+  id INT PRIMARY KEY DEFAULT 1,
+  total_order INT DEFAULT 0,
+  total_valid_order INT DEFAULT 0,
+  total_valid_amount DECIMAL(15,2) DEFAULT 0,
+  total_amount DECIMAL(15,2) DEFAULT 0,
+  total_cancel_order INT DEFAULT 0,
+  total_cancel_amount DECIMAL(15,2) DEFAULT 0,
+  total_valid_quantity INT DEFAULT 0,
+  synced_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Order dari marketplace (dari /orders)
+CREATE TABLE IF NOT EXISTS sync_orders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  external_order_id VARCHAR(100) NOT NULL,
+  order_status VARCHAR(50) DEFAULT NULL,
+  payment_method VARCHAR(100) DEFAULT NULL,
+  channel_id VARCHAR(50) DEFAULT NULL,
+  customer_name VARCHAR(255) DEFAULT NULL,
+  customer_mobile VARCHAR(50) DEFAULT NULL,
+  external_create_datetime DATETIME DEFAULT NULL,
+  total_quantity INT DEFAULT 0,
+  total_amount DECIMAL(15,2) DEFAULT 0,
+  raw_json LONGTEXT DEFAULT NULL,
+  first_synced_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  last_synced_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY uk_external_order_id (external_order_id),
+  INDEX idx_order_status (order_status),
+  INDEX idx_channel_id (channel_id),
+  INDEX idx_create_datetime (external_create_datetime)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Item dalam order marketplace
+CREATE TABLE IF NOT EXISTS sync_order_items (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  order_id INT NOT NULL,
+  external_order_id VARCHAR(100) DEFAULT NULL,
+  product_name VARCHAR(255) DEFAULT NULL,
+  quantity INT DEFAULT 1,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_order_id (order_id),
+  INDEX idx_external_order_id (external_order_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Produk dari API eksternal (dari /product)
+CREATE TABLE IF NOT EXISTS sync_products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  external_product_id VARCHAR(100) DEFAULT NULL,
+  product_code VARCHAR(100) DEFAULT NULL,
+  product_name VARCHAR(255) DEFAULT NULL,
+  category VARCHAR(100) DEFAULT NULL,
+  description TEXT DEFAULT NULL,
+  unit VARCHAR(20) DEFAULT 'PCS',
+  price DECIMAL(15,2) DEFAULT 0,
+  stock INT DEFAULT 0,
+  status VARCHAR(20) DEFAULT 'active',
+  raw_json LONGTEXT DEFAULT NULL,
+  first_synced_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  last_synced_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY uk_external_product_id (external_product_id),
+  INDEX idx_product_code (product_code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Log eksekusi sinkronisasi
+CREATE TABLE IF NOT EXISTS sync_log (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  sync_type VARCHAR(50) NOT NULL,
+  status ENUM('running','success','failed') NOT NULL DEFAULT 'running',
+  started_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  finished_at DATETIME DEFAULT NULL,
+  records_inserted INT DEFAULT 0,
+  records_updated INT DEFAULT 0,
+  records_failed INT DEFAULT 0,
+  total_records INT DEFAULT 0,
+  pages_fetched INT DEFAULT 0,
+  error_message TEXT DEFAULT NULL,
+  INDEX idx_sync_type (sync_type),
+  INDEX idx_started_at (started_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
