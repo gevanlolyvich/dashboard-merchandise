@@ -56,9 +56,9 @@
     let currentStatus = '';
     let currentSize = 20;
 
-    function loadOrders() {
+    function loadOrders(showLoading) {
         const root = document.getElementById('marketplaceRoot');
-        root.innerHTML = '<div class="mkp-loading">Memuat data marketplace...</div>';
+        if (showLoading !== false) root.innerHTML = '<div class="mkp-loading">Memuat data marketplace...</div>';
 
         let url = API_ORDERS + '?page=' + currentPage + '&size=' + currentSize;
         if (currentStatus) url += '&orderStatus=' + encodeURIComponent(currentStatus);
@@ -75,6 +75,12 @@
             .catch(err => {
                 root.innerHTML = '<div class="mkp-error">Gagal memuat data marketplace<button class="btn-retry" onclick="loadOrders()">Coba Lagi</button></div>';
             });
+    }
+
+    function mkpUpdateLastUpdate() {
+        const el = document.getElementById('mkpLastUpdate');
+        if (!el) return;
+        el.textContent = 'Terakhir diperbarui: ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     }
 
     function renderOrders(data) {
@@ -120,7 +126,10 @@
                     <option value="100">100 per halaman</option>
                 </select>
             </div>
-            <div class="mkp-info">Total ${total} pesanan</div>
+            <div class="mkp-info" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+                <span>Total ${total} pesanan</span>
+                <span id="mkpLastUpdate" style="font-size:0.75rem;color:var(--on-surface-muted)"></span>
+            </div>
         </div>
         <div class="mkp-table-wrap">
             <table class="mkp-table">
@@ -143,7 +152,8 @@
             <span style="font-size:0.8125rem;color:var(--on-surface-muted)">Halaman ${currentPage + 1} dari ${pages}</span>
             <button class="btn-secondary" style="padding:6px 14px;font-size:0.8125rem" onclick="nextPage()" ${currentPage >= pages - 1 ? 'disabled' : ''}>Selanjutnya</button>
         </div>
-    `;
+        `;
+        mkpUpdateLastUpdate();
     }
 
     function prevPage() {
@@ -152,9 +162,9 @@
 
     function nextPage() {
         currentPage++;
-        loadOrders();
-        // reload will update pages count
+        loadOrders(); // reload will update pages count
     }
 
     loadOrders();
+    setInterval(function () { loadOrders(false); }, 60000); // auto-refresh setiap 60 detik (tanpa loading)
 </script>

@@ -267,25 +267,9 @@ $pageSub = $pageSubMap[$currentPage] ?? '';
     <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeSidebar()"></div>
 
     <div class="shell-layout">
-
         <?php include __DIR__ . '/includes/sidebar.php'; ?>
 
         <main class="main">
-
-            <?php if (!in_array($currentPage, ['stock-in', 'stock-adjustments', 'refund', 'products', 'opd-customers', 'bumd-customers', 'sales-opd', 'sales-bumd', 'merchandise-jff-import', 'merchandise-jff-dashboard', 'marketplace-dashboard', 'users'])): ?>
-                <div class="page-header">
-                    <div>
-                        <div class="page-title"><?= htmlspecialchars($pageTitle) ?></div>
-                        <div class="page-sub"><?= htmlspecialchars($pageSub) ?></div>
-                    </div>
-                    <button class="btn-primary" onclick="applyFilter()">Terapkan Filter</button>
-                </div>
-            <?php endif; ?>
-
-            <?php if ($showFilter): ?>
-                <?php include __DIR__ . '/includes/filter.php'; ?>
-            <?php endif; ?>
-
             <?php
             if ($pageFile && file_exists(__DIR__ . '/' . $pageFile)) {
                 include __DIR__ . '/' . $pageFile;
@@ -293,7 +277,6 @@ $pageSub = $pageSubMap[$currentPage] ?? '';
                 echo '<p>Halaman tidak ditemukan.</p>';
             }
             ?>
-
         </main>
     </div>
 

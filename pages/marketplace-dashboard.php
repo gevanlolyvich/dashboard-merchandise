@@ -7,6 +7,7 @@
     <button class="md-filter-btn" data-period="7d" onclick="setPeriod('7d')">7 Hari</button>
     <button class="md-filter-btn" data-period="30d" onclick="setPeriod('30d')">30 Hari</button>
     <button class="md-filter-btn" data-period="this-year" onclick="setPeriod('this-year')">Tahun Ini</button>
+    <span class="md-last-update" id="mdLastUpdate"></span>
 </div>
 
 <div id="md-dashboard">
@@ -138,6 +139,13 @@
     border-color: var(--primary, #f97316);
     color: #fff;
 }
+.md-last-update {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--on-surface-muted, #9ca3af);
+    white-space: nowrap;
+    padding: 6px 0;
+}
 </style>
 
 <script>
@@ -199,6 +207,14 @@
         loadDashboard();
     }
 
+    function updateLastUpdate() {
+        const el = document.getElementById('mdLastUpdate');
+        if (!el) return;
+        const now = new Date();
+        const time = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        el.textContent = 'Terakhir diperbarui: ' + time;
+    }
+
     function showSkeletons() {
         document.getElementById('mdKpiGrid').innerHTML = Array(6).fill('<div class="md-skeleton md-skeleton-kpi"></div>').join('');
         document.querySelectorAll('.md-chart-container').forEach(c => {
@@ -246,6 +262,7 @@
                     renderOrderMarketplaceBar(orders);
                     renderTimeline(orders);
                     renderTopProducts(orders);
+                    updateLastUpdate();
                 });
             })
             .catch(err => {
@@ -441,5 +458,8 @@
         });
     }
 
-    document.addEventListener('DOMContentLoaded', loadDashboard);
+    document.addEventListener('DOMContentLoaded', function () {
+        loadDashboard();
+        setInterval(loadDashboard, 60000); // auto-refresh setiap 60 detik
+    });
 </script>

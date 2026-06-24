@@ -87,6 +87,7 @@ function navIcon($type)
             <span class="nav-icon"><?= navIcon('pos') ?></span>
             <span>POS</span>
         </a>
+        <!--
         <a href="<?= BASE_URL ?>/sales-opd" class="nav-item <?= $currentPage == 'sales-opd' ? 'active' : '' ?>">
             <span class="nav-icon"><?= navIcon('opd') ?></span>
             <span>OPD</span>
@@ -95,9 +96,11 @@ function navIcon($type)
             <span class="nav-icon"><?= navIcon('bumd') ?></span>
             <span>BUMD</span>
         </a>
+        -->
     <?php endif; ?>
 
     <?php if ($userRole !== 'user'): ?>
+        <!--
         <div class="sidebar-section-label">Persediaan</div>
         <a href="<?= BASE_URL ?>/products" class="nav-item <?= $currentPage == 'products' ? 'active' : '' ?>">
             <span class="nav-icon"><?= navIcon('master') ?></span>
@@ -111,13 +114,13 @@ function navIcon($type)
             <span class="nav-icon"><?= navIcon('mutation') ?></span>
             <span>Riwayat Mutasi Stok</span>
         </a>
-
         <a href="<?= BASE_URL ?>/refund"
             class="nav-item <?= $currentPage == 'refund' ? 'active' : '' ?>">
             <span class="nav-icon"><?= navIcon('adjustment') ?></span>
             <span>Refund Produk</span>
         </a>
-
+        -->
+        <!--
         <div class="sidebar-section-label">Master Data</div>
         <a href="<?= BASE_URL ?>/opd-customers" class="nav-item <?= $currentPage == 'opd-customers' ? 'active' : '' ?>">
             <span class="nav-icon"><?= navIcon('opd') ?></span>
@@ -127,6 +130,7 @@ function navIcon($type)
             <span class="nav-icon"><?= navIcon('bumd') ?></span>
             <span>BUMD</span>
         </a>
+        -->
     <?php endif; ?>
 
     <?php if ($userRole !== 'user'): ?>
