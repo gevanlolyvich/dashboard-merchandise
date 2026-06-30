@@ -1,0 +1,106 @@
+[2026-06-25 04:02:41] [info] === Sync Products dimulai ===
+[2026-06-25 04:02:41] [warning] Channel TIKTOK_ID page 0 - 429, retry in 5s
+[2026-06-25 04:02:41] [info] === Sync Products dimulai ===
+[2026-06-25 04:02:41] [warning] Channel TIKTOK_ID page 0 - 429, retry in 5s
+[2026-06-25 04:02:46] [warning] Channel TIKTOK_ID page 0 - 429, retry in 10s
+[2026-06-25 04:02:46] [warning] Channel TIKTOK_ID page 0 - 429, retry in 10s
+[2026-06-25 04:02:56] [warning] Channel TIKTOK_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:02:56] [warning] Channel TIKTOK_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:02:59] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 5s
+[2026-06-25 04:02:59] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 5s
+[2026-06-25 04:03:04] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 10s
+[2026-06-25 04:03:04] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 10s
+[2026-06-25 04:03:14] [warning] Channel TOKOPEDIA_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:03:14] [warning] Channel TOKOPEDIA_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:03:17] [warning] Channel SHOPEE_ID page 0 - 429, retry in 5s
+[2026-06-25 04:03:17] [warning] Channel SHOPEE_ID page 0 - 429, retry in 5s
+[2026-06-25 04:03:22] [warning] Channel SHOPEE_ID page 0 - 429, retry in 10s
+[2026-06-25 04:03:22] [warning] Channel SHOPEE_ID page 0 - 429, retry in 10s
+[2026-06-25 04:03:32] [warning] Channel SHOPEE_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:03:32] [warning] Channel SHOPEE_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:03:35] [warning] Channel LAZADA_ID page 0 - 429, retry in 5s
+[2026-06-25 04:03:35] [warning] Channel LAZADA_ID page 0 - 429, retry in 5s
+[2026-06-25 04:03:40] [warning] Channel LAZADA_ID page 0 - 429, retry in 10s
+[2026-06-25 04:03:40] [warning] Channel LAZADA_ID page 0 - 429, retry in 10s
+[2026-06-25 04:03:50] [warning] Channel LAZADA_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:03:50] [info] === Sync Products selesai (0 produk) ===
+[2026-06-25 04:03:50] [warning] Channel LAZADA_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:03:50] [info] === Sync Products selesai (0 produk) ===
+[2026-06-25 04:04:01] [info] === Sync Products dimulai ===
+[2026-06-25 04:04:01] [warning] Channel TIKTOK_ID page 0 - 429, retry in 5s
+[2026-06-25 04:04:06] [warning] Channel TIKTOK_ID page 0 - 429, retry in 10s
+[2026-06-25 04:04:16] [warning] Channel TIKTOK_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:04:19] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 5s
+[2026-06-25 04:04:24] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 10s
+[2026-06-25 04:04:34] [warning] Channel TOKOPEDIA_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:04:37] [warning] Channel SHOPEE_ID page 0 - 429, retry in 5s
+[2026-06-25 04:04:42] [warning] Channel SHOPEE_ID page 0 - 429, retry in 10s
+[2026-06-25 04:04:52] [warning] Channel SHOPEE_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:04:56] [warning] Channel LAZADA_ID page 0 - 429, retry in 5s
+[2026-06-25 04:05:01] [warning] Channel LAZADA_ID page 0 - 429, retry in 10s
+[2026-06-25 04:05:11] [warning] Channel LAZADA_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:05:11] [info] === Sync Products selesai (0 produk) ===
+[2026-06-25 04:06:01] [info] === Sync Products dimulai ===
+[2026-06-25 04:06:01] [warning] Channel TIKTOK_ID page 0 - 429, retry in 5s
+[2026-06-25 04:06:06] [warning] Channel TIKTOK_ID page 0 - 429, retry in 10s
+[2026-06-25 04:06:16] [warning] Channel TIKTOK_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:06:19] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 5s
+[2026-06-25 04:06:24] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 10s
+[2026-06-25 04:06:34] [warning] Channel TOKOPEDIA_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:06:37] [warning] Channel SHOPEE_ID page 0 - 429, retry in 5s
+[2026-06-25 04:06:42] [warning] Channel SHOPEE_ID page 0 - 429, retry in 10s
+[2026-06-25 04:06:52] [warning] Channel SHOPEE_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:06:55] [warning] Channel LAZADA_ID page 0 - 429, retry in 5s
+[2026-06-25 04:18:47] [info] === Sync Products dimulai ===
+[2026-06-25 04:18:54] [info] Channel TOKOPEDIA_ID page 0 - 0 products (selesai)
+[2026-06-25 04:19:02] [info] Channel SHOPEE_ID page 0 - 0 products (selesai)
+[2026-06-25 04:19:08] [info] Channel LAZADA_ID page 0 - 0 products (selesai)
+[2026-06-25 04:19:08] [info] === Sync Products selesai (1 produk) ===
+[2026-06-25 04:40:35] [info] === Sync Products dimulai ===
+[2026-06-25 04:40:35] [warning] Channel TIKTOK_ID page 0 - 429, retry in 5s
+[2026-06-25 04:40:40] [warning] Channel TIKTOK_ID page 0 - 429, retry in 10s
+[2026-06-25 04:40:50] [warning] Channel TIKTOK_ID page 0 gagal (HTTP 429)
+[2026-06-25 04:40:53] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 5s
+[2026-06-25 04:40:58] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 10s
+[2026-06-25 04:41:18] [info] Channel TOKOPEDIA_ID page 0 - 0 products (selesai)
+[2026-06-25 04:41:21] [info] Channel SHOPEE_ID page 0 - 0 products (selesai)
+[2026-06-25 04:41:30] [info] Channel LAZADA_ID page 0 - 0 products (selesai)
+[2026-06-25 04:41:30] [info] === Sync Products selesai (0 produk) ===
+[2026-06-25 05:20:50] [info] === Sync Products dimulai ===
+[2026-06-25 05:20:56] [info] Channel TIKTOK_ID page 0 - 0 products (selesai)
+[2026-06-25 05:21:21] [info] Channel TOKOPEDIA_ID page 0 - 0 products (selesai)
+[2026-06-25 05:21:28] [info] Channel SHOPEE_ID page 0 - 0 products (selesai)
+[2026-06-25 05:21:57] [info] Channel LAZADA_ID page 0 - 0 products (selesai)
+[2026-06-25 05:21:57] [info] === Sync Products selesai (0 produk) ===
+[2026-06-25 05:39:07] [info] === Sync Products dimulai ===
+[2026-06-25 05:39:07] [warning] Channel TIKTOK_ID page 0 - 429, retry in 5s
+[2026-06-25 05:39:12] [warning] Channel TIKTOK_ID page 0 - 429, retry in 10s
+[2026-06-25 05:39:22] [warning] Channel TIKTOK_ID page 0 gagal (HTTP 429)
+[2026-06-25 05:39:24] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 5s
+[2026-06-25 05:39:29] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 10s
+[2026-06-25 05:39:39] [warning] Channel TOKOPEDIA_ID page 0 gagal (HTTP 429)
+[2026-06-25 05:39:41] [warning] Channel SHOPEE_ID page 0 - 429, retry in 5s
+[2026-06-25 05:39:46] [warning] Channel SHOPEE_ID page 0 - 429, retry in 10s
+[2026-06-25 05:39:56] [warning] Channel SHOPEE_ID page 0 gagal (HTTP 429)
+[2026-06-25 05:39:58] [warning] Channel LAZADA_ID page 0 - 429, retry in 5s
+[2026-06-25 05:40:03] [warning] Channel LAZADA_ID page 0 - 429, retry in 10s
+[2026-06-25 05:40:13] [warning] Channel LAZADA_ID page 0 gagal (HTTP 429)
+[2026-06-25 05:40:13] [info] === Sync Products selesai (0 produk) ===
+[2026-06-25 05:41:03] [info] === Sync Products dimulai ===
+[2026-06-25 05:41:03] [warning] Channel TIKTOK_ID page 0 - 429, retry in 5s
+[2026-06-25 05:58:10] [info] === Sync Products dimulai ===
+[2026-06-25 05:58:10] [warning] Channel TIKTOK_ID page 0 - 429, retry in 5s
+[2026-06-25 05:58:15] [warning] Channel TIKTOK_ID page 0 - 429, retry in 10s
+[2026-06-25 05:58:30] [warning] Channel TIKTOK_ID page 0 gagal (HTTP 429)
+[2026-06-25 05:58:39] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 5s
+[2026-06-25 05:58:48] [warning] Channel TOKOPEDIA_ID page 0 - 429, retry in 10s
+[2026-06-25 05:58:58] [warning] Channel TOKOPEDIA_ID page 0 gagal (HTTP 429)
+[2026-06-25 05:59:01] [warning] Channel SHOPEE_ID page 0 - 429, retry in 5s
+[2026-06-25 05:59:06] [warning] Channel SHOPEE_ID page 0 - 429, retry in 10s
+[2026-06-25 05:59:16] [warning] Channel SHOPEE_ID page 0 gagal (HTTP 429)
+[2026-06-25 05:59:18] [warning] Channel LAZADA_ID page 0 - 429, retry in 5s
+[2026-06-25 05:59:24] [warning] Channel LAZADA_ID page 0 - 429, retry in 10s
+[2026-06-25 05:59:35] [warning] Channel LAZADA_ID page 0 gagal (HTTP 429)
+[2026-06-25 05:59:40] [info] === Sync Products selesai (0 produk) ===
+[2026-06-25 06:00:03] [info] === Sync Products dimulai ===
+[2026-06-25 06:00:03] [warning] Channel TIKTOK_ID page 0 - 429, retry in 5s

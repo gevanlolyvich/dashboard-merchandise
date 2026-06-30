@@ -1,0 +1,671 @@
+[2026-06-24 04:14:01] [info] === Sync Orders dimulai ===
+[2026-06-24 04:14:01] [info] Mengambil data summary dari /orders/count...
+[2026-06-24 04:14:08] [info] Summary berhasil disimpan
+[2026-06-24 04:14:11] [info] Total halaman: 183, Total order: 183
+[2026-06-24 04:15:53] [info] Progress: halaman 10/183 | Inserted: 2 | Updated: 998
+[2026-06-24 04:17:48] [info] Progress: halaman 20/183 | Inserted: 2 | Updated: 1998
+[2026-06-24 04:18:47] [info] Progress: halaman 30/183 | Inserted: 2 | Updated: 2998
+[2026-06-24 04:19:44] [info] Progress: halaman 40/183 | Inserted: 2 | Updated: 3998
+[2026-06-24 04:21:23] [info] Progress: halaman 50/183 | Inserted: 2 | Updated: 4998
+[2026-06-24 04:22:20] [info] Progress: halaman 60/183 | Inserted: 2 | Updated: 5998
+[2026-06-24 04:23:40] [info] Progress: halaman 70/183 | Inserted: 2 | Updated: 6998
+[2026-06-24 04:25:18] [info] Progress: halaman 80/183 | Inserted: 2 | Updated: 7998
+[2026-06-24 04:27:10] [info] Progress: halaman 90/183 | Inserted: 2 | Updated: 8998
+[2026-06-24 04:27:21] [error] Gagal sync halaman 91: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 92: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 93: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 94: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 95: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 96: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 97: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 98: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 99: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [info] Progress: halaman 100/183 | Inserted: 2 | Updated: 9098
+[2026-06-24 04:27:21] [error] Gagal sync halaman 100: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 101: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 102: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 103: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 104: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 105: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 106: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 107: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 108: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 109: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [info] Progress: halaman 110/183 | Inserted: 2 | Updated: 9098
+[2026-06-24 04:27:21] [error] Gagal sync halaman 110: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 111: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 112: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 113: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 114: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 115: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 116: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 117: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 118: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 119: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [info] Progress: halaman 120/183 | Inserted: 2 | Updated: 9098
+[2026-06-24 04:27:21] [error] Gagal sync halaman 120: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 121: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 122: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 123: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 124: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 125: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 126: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 127: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 128: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 129: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [info] Progress: halaman 130/183 | Inserted: 2 | Updated: 9098
+[2026-06-24 04:27:21] [error] Gagal sync halaman 130: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 131: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 132: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 133: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 134: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 135: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 136: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 137: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 138: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 139: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [info] Progress: halaman 140/183 | Inserted: 2 | Updated: 9098
+[2026-06-24 04:27:21] [error] Gagal sync halaman 140: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 141: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 142: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 143: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 144: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 145: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 146: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 147: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 148: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 149: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [info] Progress: halaman 150/183 | Inserted: 2 | Updated: 9098
+[2026-06-24 04:27:21] [error] Gagal sync halaman 150: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 151: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 152: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 153: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 154: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 155: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 156: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 157: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 158: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 159: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [info] Progress: halaman 160/183 | Inserted: 2 | Updated: 9098
+[2026-06-24 04:27:21] [error] Gagal sync halaman 160: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 161: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 162: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 163: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:21] [error] Gagal sync halaman 164: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 165: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 166: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 167: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 168: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 169: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [info] Progress: halaman 170/183 | Inserted: 2 | Updated: 9098
+[2026-06-24 04:27:22] [error] Gagal sync halaman 170: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 171: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 172: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 173: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 174: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 175: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 176: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 177: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 178: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 179: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [info] Progress: halaman 180/183 | Inserted: 2 | Updated: 9098
+[2026-06-24 04:27:22] [error] Gagal sync halaman 180: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 181: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [error] Gagal sync halaman 182: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [info] Progress: halaman 183/183 | Inserted: 2 | Updated: 9098
+[2026-06-24 04:27:22] [info] === Sync Orders selesai ===
+[2026-06-24 05:30:47] [info] === Sync Orders dimulai ===
+[2026-06-24 05:30:47] [info] Mengambil data summary dari /orders/count...
+[2026-06-24 05:30:52] [info] Summary berhasil disimpan
+[2026-06-24 05:30:53] [info] Total halaman: 184, Total order: 184
+[2026-06-24 05:32:20] [info] Progress: halaman 10/184 | Inserted: 0 | Updated: 1000
+[2026-06-24 05:34:26] [info] Progress: halaman 20/184 | Inserted: 0 | Updated: 2000
+[2026-06-24 05:36:34] [info] Progress: halaman 30/184 | Inserted: 0 | Updated: 3000
+[2026-06-24 05:37:29] [info] Progress: halaman 40/184 | Inserted: 0 | Updated: 4000
+[2026-06-24 05:38:31] [info] Progress: halaman 50/184 | Inserted: 0 | Updated: 5000
+[2026-06-24 05:39:34] [info] Progress: halaman 60/184 | Inserted: 0 | Updated: 6000
+[2026-06-24 05:40:45] [info] Progress: halaman 70/184 | Inserted: 0 | Updated: 7000
+[2026-06-24 05:42:03] [info] Progress: halaman 80/184 | Inserted: 0 | Updated: 8000
+[2026-06-24 05:43:56] [info] Progress: halaman 90/184 | Inserted: 0 | Updated: 9000
+[2026-06-24 05:44:51] [info] Progress: halaman 100/184 | Inserted: 0 | Updated: 10000
+[2026-06-24 05:46:01] [info] Progress: halaman 110/184 | Inserted: 0 | Updated: 11000
+[2026-06-24 05:47:37] [info] Progress: halaman 120/184 | Inserted: 0 | Updated: 12000
+[2026-06-24 05:49:15] [info] Progress: halaman 130/184 | Inserted: 0 | Updated: 13000
+[2026-06-24 05:50:22] [info] Progress: halaman 140/184 | Inserted: 0 | Updated: 14000
+[2026-06-24 05:51:12] [info] Progress: halaman 150/184 | Inserted: 0 | Updated: 15000
+[2026-06-24 05:51:39] [error] Gagal sync halaman 153: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 154: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 155: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 156: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 157: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 158: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 159: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [info] Progress: halaman 160/184 | Inserted: 0 | Updated: 15300
+[2026-06-24 05:51:39] [error] Gagal sync halaman 160: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 161: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 162: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 163: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 164: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 165: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 166: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 167: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 168: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 169: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [info] Progress: halaman 170/184 | Inserted: 0 | Updated: 15300
+[2026-06-24 05:51:39] [error] Gagal sync halaman 170: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 171: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 172: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 173: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 174: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 175: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 176: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 177: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 178: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 179: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [info] Progress: halaman 180/184 | Inserted: 0 | Updated: 15300
+[2026-06-24 05:51:39] [error] Gagal sync halaman 180: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 181: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 182: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [error] Gagal sync halaman 183: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [info] Progress: halaman 184/184 | Inserted: 0 | Updated: 15300
+[2026-06-24 05:51:39] [info] === Sync Orders selesai ===
+[2026-06-24 06:21:49] [info] === Sync Orders dimulai ===
+[2026-06-24 06:21:49] [info] Mengambil data summary dari /orders/count...
+[2026-06-24 06:22:06] [info] Summary berhasil disimpan
+[2026-06-24 06:22:15] [info] Total halaman: 185, Total order: 185
+[2026-06-24 06:23:32] [info] Progress: halaman 10/185 | Inserted: 1 | Updated: 999
+[2026-06-24 06:25:54] [info] Progress: halaman 20/185 | Inserted: 1 | Updated: 1999
+[2026-06-24 06:27:09] [info] Progress: halaman 30/185 | Inserted: 1 | Updated: 2999
+[2026-06-24 06:28:49] [info] Progress: halaman 40/185 | Inserted: 1 | Updated: 3999
+[2026-06-24 06:29:27] [info] Progress: halaman 50/185 | Inserted: 1 | Updated: 4999
+[2026-06-24 06:30:14] [info] Progress: halaman 60/185 | Inserted: 1 | Updated: 5999
+[2026-06-24 06:31:25] [info] Progress: halaman 70/185 | Inserted: 1 | Updated: 6999
+[2026-06-24 06:32:31] [info] Progress: halaman 80/185 | Inserted: 1 | Updated: 7999
+[2026-06-24 06:33:44] [info] Progress: halaman 90/185 | Inserted: 1 | Updated: 8999
+[2026-06-24 06:34:23] [error] Gagal sync halaman 93: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:24] [error] Gagal sync halaman 94: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 95: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 96: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 97: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 98: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 99: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [info] Progress: halaman 100/185 | Inserted: 1 | Updated: 9299
+[2026-06-24 06:34:25] [error] Gagal sync halaman 100: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 101: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 102: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 103: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 104: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 105: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 106: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 107: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 108: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 109: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [info] Progress: halaman 110/185 | Inserted: 1 | Updated: 9299
+[2026-06-24 06:34:25] [error] Gagal sync halaman 110: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 111: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 112: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 113: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 114: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 115: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 116: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 117: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 118: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 119: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [info] Progress: halaman 120/185 | Inserted: 1 | Updated: 9299
+[2026-06-24 06:34:25] [error] Gagal sync halaman 120: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 121: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 122: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 123: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 124: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 125: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 126: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 127: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 128: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 129: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [info] Progress: halaman 130/185 | Inserted: 1 | Updated: 9299
+[2026-06-24 06:34:25] [error] Gagal sync halaman 130: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 131: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 132: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 133: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:25] [error] Gagal sync halaman 134: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 135: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 136: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 137: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 138: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 139: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [info] Progress: halaman 140/185 | Inserted: 1 | Updated: 9299
+[2026-06-24 06:34:26] [error] Gagal sync halaman 140: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 141: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 142: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 143: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 144: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 145: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 146: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 147: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 148: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 149: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [info] Progress: halaman 150/185 | Inserted: 1 | Updated: 9299
+[2026-06-24 06:34:26] [error] Gagal sync halaman 150: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 151: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 152: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 153: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 154: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 155: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 156: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 157: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 158: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 159: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [info] Progress: halaman 160/185 | Inserted: 1 | Updated: 9299
+[2026-06-24 06:34:26] [error] Gagal sync halaman 160: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 161: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 162: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 163: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 164: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 165: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 166: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 167: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 168: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 169: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [info] Progress: halaman 170/185 | Inserted: 1 | Updated: 9299
+[2026-06-24 06:34:26] [error] Gagal sync halaman 170: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 171: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 172: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 173: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 174: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 175: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 176: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 177: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 178: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 179: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [info] Progress: halaman 180/185 | Inserted: 1 | Updated: 9299
+[2026-06-24 06:34:26] [error] Gagal sync halaman 180: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 181: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 182: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 183: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [error] Gagal sync halaman 184: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:26] [info] Progress: halaman 185/185 | Inserted: 1 | Updated: 9299
+[2026-06-24 06:34:26] [info] === Sync Orders selesai ===
+[2026-06-24 06:53:40] [info] === Sync Orders dimulai ===
+[2026-06-24 06:53:40] [info] Mengambil data summary dari /orders/count...
+[2026-06-24 06:53:46] [info] Summary berhasil disimpan
+[2026-06-24 06:54:02] [info] Total halaman: 185, Total order: 185
+[2026-06-24 06:55:38] [info] Progress: halaman 10/185 | Inserted: 0 | Updated: 1000
+[2026-06-24 06:56:53] [info] Progress: halaman 20/185 | Inserted: 0 | Updated: 2000
+[2026-06-24 06:57:16] [info] Progress: halaman 30/185 | Inserted: 0 | Updated: 3000
+[2026-06-24 06:58:37] [info] Progress: halaman 40/185 | Inserted: 0 | Updated: 4000
+[2026-06-24 07:00:07] [info] Progress: halaman 50/185 | Inserted: 0 | Updated: 5000
+[2026-06-24 07:01:54] [info] Progress: halaman 60/185 | Inserted: 0 | Updated: 6000
+[2026-06-24 07:03:32] [info] Progress: halaman 70/185 | Inserted: 0 | Updated: 7000
+[2026-06-24 07:04:26] [info] Progress: halaman 80/185 | Inserted: 0 | Updated: 8000
+[2026-06-24 07:05:27] [info] Progress: halaman 90/185 | Inserted: 0 | Updated: 9000
+[2026-06-24 07:05:55] [error] Gagal sync halaman 95: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:55] [error] Gagal sync halaman 96: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:55] [error] Gagal sync halaman 97: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:55] [error] Gagal sync halaman 98: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:55] [error] Gagal sync halaman 99: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:55] [info] Progress: halaman 100/185 | Inserted: 0 | Updated: 9500
+[2026-06-24 07:05:55] [error] Gagal sync halaman 100: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:55] [error] Gagal sync halaman 101: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:55] [error] Gagal sync halaman 102: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:55] [error] Gagal sync halaman 103: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:55] [error] Gagal sync halaman 104: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:55] [error] Gagal sync halaman 105: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:55] [error] Gagal sync halaman 106: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 107: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 108: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 109: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [info] Progress: halaman 110/185 | Inserted: 0 | Updated: 9500
+[2026-06-24 07:05:56] [error] Gagal sync halaman 110: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 111: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 112: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 113: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 114: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 115: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 116: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 117: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 118: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 119: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [info] Progress: halaman 120/185 | Inserted: 0 | Updated: 9500
+[2026-06-24 07:05:56] [error] Gagal sync halaman 120: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 121: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 122: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 123: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 124: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 125: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:56] [error] Gagal sync halaman 126: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 127: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 128: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 129: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [info] Progress: halaman 130/185 | Inserted: 0 | Updated: 9500
+[2026-06-24 07:05:57] [error] Gagal sync halaman 130: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 131: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 132: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 133: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 134: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 135: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 136: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 137: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 138: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 139: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [info] Progress: halaman 140/185 | Inserted: 0 | Updated: 9500
+[2026-06-24 07:05:57] [error] Gagal sync halaman 140: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:57] [error] Gagal sync halaman 141: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 142: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 143: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 144: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 145: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 146: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 147: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 148: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 149: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [info] Progress: halaman 150/185 | Inserted: 0 | Updated: 9500
+[2026-06-24 07:05:58] [error] Gagal sync halaman 150: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 151: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 152: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 153: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 154: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 155: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:58] [error] Gagal sync halaman 156: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 157: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 158: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 159: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [info] Progress: halaman 160/185 | Inserted: 0 | Updated: 9500
+[2026-06-24 07:05:59] [error] Gagal sync halaman 160: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 161: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 162: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 163: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 164: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 165: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 166: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 167: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 168: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 169: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [info] Progress: halaman 170/185 | Inserted: 0 | Updated: 9500
+[2026-06-24 07:05:59] [error] Gagal sync halaman 170: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 171: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 172: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 173: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 174: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 175: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 176: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 177: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 178: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 179: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [info] Progress: halaman 180/185 | Inserted: 0 | Updated: 9500
+[2026-06-24 07:05:59] [error] Gagal sync halaman 180: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 181: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 182: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 183: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [error] Gagal sync halaman 184: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:05:59] [info] Progress: halaman 185/185 | Inserted: 0 | Updated: 9500
+[2026-06-24 07:05:59] [info] === Sync Orders selesai ===
+[2026-06-24 08:52:29] [info] === Sync Orders dimulai ===
+[2026-06-24 08:52:29] [info] Mengambil data summary dari /orders/count...
+[2026-06-24 08:52:56] [info] Summary berhasil disimpan
+[2026-06-24 08:53:01] [info] Total halaman: 194, Total order: 194
+[2026-06-24 08:53:46] [info] Progress: halaman 10/194 | Inserted: 2 | Updated: 998
+[2026-06-24 08:54:52] [info] Progress: halaman 20/194 | Inserted: 2 | Updated: 1998
+[2026-06-24 08:55:59] [info] Progress: halaman 30/194 | Inserted: 2 | Updated: 2998
+[2026-06-24 08:57:23] [info] Progress: halaman 40/194 | Inserted: 2 | Updated: 3998
+[2026-06-24 08:58:25] [info] Progress: halaman 50/194 | Inserted: 2 | Updated: 4998
+[2026-06-24 08:59:11] [info] Progress: halaman 60/194 | Inserted: 2 | Updated: 5998
+[2026-06-24 09:00:37] [info] Progress: halaman 70/194 | Inserted: 2 | Updated: 6998
+[2026-06-24 09:01:35] [info] Progress: halaman 80/194 | Inserted: 2 | Updated: 7998
+[2026-06-24 09:02:22] [info] Progress: halaman 90/194 | Inserted: 2 | Updated: 8998
+[2026-06-24 09:02:45] [error] Gagal sync halaman 94: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 95: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 96: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 97: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 98: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 99: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [info] Progress: halaman 100/194 | Inserted: 2 | Updated: 9398
+[2026-06-24 09:02:45] [error] Gagal sync halaman 100: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 101: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 102: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 103: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 104: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 105: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 106: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 107: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 108: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 109: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [info] Progress: halaman 110/194 | Inserted: 2 | Updated: 9398
+[2026-06-24 09:02:45] [error] Gagal sync halaman 110: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 111: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 112: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 113: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 114: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 115: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 116: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 117: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:45] [error] Gagal sync halaman 118: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 119: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [info] Progress: halaman 120/194 | Inserted: 2 | Updated: 9398
+[2026-06-24 09:02:46] [error] Gagal sync halaman 120: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 121: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 122: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 123: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 124: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 125: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 126: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 127: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 128: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 129: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [info] Progress: halaman 130/194 | Inserted: 2 | Updated: 9398
+[2026-06-24 09:02:46] [error] Gagal sync halaman 130: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 131: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 132: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 133: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 134: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 135: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 136: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 137: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 138: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 139: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [info] Progress: halaman 140/194 | Inserted: 2 | Updated: 9398
+[2026-06-24 09:02:46] [error] Gagal sync halaman 140: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 141: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 142: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 143: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 144: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 145: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 146: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 147: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 148: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 149: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [info] Progress: halaman 150/194 | Inserted: 2 | Updated: 9398
+[2026-06-24 09:02:46] [error] Gagal sync halaman 150: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 151: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 152: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 153: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 154: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 155: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 156: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 157: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 158: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 159: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [info] Progress: halaman 160/194 | Inserted: 2 | Updated: 9398
+[2026-06-24 09:02:46] [error] Gagal sync halaman 160: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 161: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 162: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 163: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 164: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 165: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 166: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 167: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 168: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 169: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [info] Progress: halaman 170/194 | Inserted: 2 | Updated: 9398
+[2026-06-24 09:02:46] [error] Gagal sync halaman 170: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 171: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 172: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 173: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 174: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 175: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 176: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 177: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 178: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 179: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [info] Progress: halaman 180/194 | Inserted: 2 | Updated: 9398
+[2026-06-24 09:02:46] [error] Gagal sync halaman 180: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 181: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 182: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 183: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 184: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 185: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 186: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 187: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 188: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 189: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [info] Progress: halaman 190/194 | Inserted: 2 | Updated: 9398
+[2026-06-24 09:02:46] [error] Gagal sync halaman 190: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 191: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 192: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [error] Gagal sync halaman 193: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:02:46] [info] Progress: halaman 194/194 | Inserted: 2 | Updated: 9398
+[2026-06-24 09:02:46] [info] === Sync Orders selesai ===
+[2026-06-24 10:04:40] [info] === Sync Orders dimulai ===
+[2026-06-24 10:04:40] [info] Mengambil data summary dari /orders/count...
+[2026-06-24 10:04:41] [info] Summary berhasil disimpan
+[2026-06-24 10:04:41] [info] Total halaman: 196, Total order: 196
+[2026-06-24 10:05:03] [info] Progress: halaman 10/196 | Inserted: 0 | Updated: 1000
+[2026-06-24 10:06:21] [info] Progress: halaman 20/196 | Inserted: 0 | Updated: 2000
+[2026-06-24 10:07:20] [info] Progress: halaman 30/196 | Inserted: 0 | Updated: 3000
+[2026-06-24 10:07:59] [info] Progress: halaman 40/196 | Inserted: 0 | Updated: 4000
+[2026-06-24 10:08:39] [info] Progress: halaman 50/196 | Inserted: 0 | Updated: 5000
+[2026-06-24 10:09:54] [info] Progress: halaman 60/196 | Inserted: 0 | Updated: 6000
+[2026-06-24 10:10:31] [info] Progress: halaman 70/196 | Inserted: 0 | Updated: 7000
+[2026-06-24 10:10:50] [info] Progress: halaman 80/196 | Inserted: 0 | Updated: 8000
+[2026-06-24 10:11:20] [error] Gagal sync halaman 85: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 86: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 87: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 88: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 89: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [info] Progress: halaman 90/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:20] [error] Gagal sync halaman 90: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 91: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 92: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 93: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 94: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 95: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 96: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 97: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 98: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 99: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [info] Progress: halaman 100/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:20] [error] Gagal sync halaman 100: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 101: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 102: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 103: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 104: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 105: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 106: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 107: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 108: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 109: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [info] Progress: halaman 110/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:20] [error] Gagal sync halaman 110: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 111: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 112: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 113: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 114: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 115: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 116: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 117: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 118: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 119: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [info] Progress: halaman 120/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:20] [error] Gagal sync halaman 120: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 121: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 122: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 123: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 124: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 125: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 126: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 127: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 128: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 129: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [info] Progress: halaman 130/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:20] [error] Gagal sync halaman 130: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 131: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 132: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 133: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 134: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 135: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 136: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 137: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 138: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 139: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [info] Progress: halaman 140/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:20] [error] Gagal sync halaman 140: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 141: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 142: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 143: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 144: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 145: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 146: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 147: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 148: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 149: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [info] Progress: halaman 150/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:20] [error] Gagal sync halaman 150: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 151: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 152: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 153: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 154: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 155: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 156: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 157: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 158: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 159: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [info] Progress: halaman 160/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:20] [error] Gagal sync halaman 160: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 161: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 162: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:20] [error] Gagal sync halaman 163: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 164: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 165: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 166: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 167: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 168: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 169: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [info] Progress: halaman 170/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:21] [error] Gagal sync halaman 170: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 171: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 172: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 173: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 174: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 175: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 176: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 177: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 178: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 179: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [info] Progress: halaman 180/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:21] [error] Gagal sync halaman 180: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 181: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 182: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 183: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 184: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 185: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 186: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 187: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 188: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 189: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [info] Progress: halaman 190/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:21] [error] Gagal sync halaman 190: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 191: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 192: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 193: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 194: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [error] Gagal sync halaman 195: HTTP 429: Too many requests, please try again later
+[2026-06-24 10:11:21] [info] Progress: halaman 196/196 | Inserted: 0 | Updated: 8500
+[2026-06-24 10:11:21] [info] === Sync Orders selesai ===
+[2026-06-24 10:50:07] [info] === Sync Orders dimulai ===
+[2026-06-24 10:50:07] [info] Mengambil data summary dari /orders/count...
+[2026-06-24 10:50:13] [info] Summary berhasil disimpan
+[2026-06-24 10:50:18] [info] Total halaman: 201, Total order: 201
+[2026-06-24 10:51:36] [info] Progress: halaman 10/201 | Inserted: 0 | Updated: 1000
+[2026-06-24 10:52:47] [info] Progress: halaman 20/201 | Inserted: 0 | Updated: 2000
+[2026-06-24 10:54:28] [info] Progress: halaman 30/201 | Inserted: 1 | Updated: 2999
+[2026-06-24 10:55:09] [info] Progress: halaman 40/201 | Inserted: 2 | Updated: 3998
+[2026-06-24 10:56:00] [info] Progress: halaman 50/201 | Inserted: 2 | Updated: 4998

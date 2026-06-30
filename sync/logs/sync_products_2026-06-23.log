@@ -1,0 +1,3 @@
+[2026-06-23 09:56:51] [info] === Sync Products dimulai ===
+[2026-06-23 09:56:51] [warning] Endpoint /product tidak tersedia atau gagal: HTTP 404: Cannot GET /api/v1/ginee/product
+[2026-06-23 09:56:51] [info] Sync Products di-skip (non-fatal)

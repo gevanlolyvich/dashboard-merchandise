@@ -1,0 +1,77 @@
+[2026-06-24 04:27:22] [info] === Sync Products dimulai ===
+[2026-06-24 04:27:22] [warning] Endpoint /products tidak tersedia atau gagal: HTTP 429: Too many requests, please try again later
+[2026-06-24 04:27:22] [info] Sync Products di-skip (non-fatal)
+[2026-06-24 05:51:39] [info] === Sync Products dimulai ===
+[2026-06-24 05:51:39] [warning] Channel TIKTOK_ID halaman 0 gagal: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [warning] Channel TOKOPEDIA_ID halaman 0 gagal: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [warning] Channel SHOPEE_ID halaman 0 gagal: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [warning] Channel LAZADA_ID halaman 0 gagal: HTTP 429: Too many requests, please try again later
+[2026-06-24 05:51:39] [info] === Sync Products selesai (0 produk) ===
+[2026-06-24 06:34:26] [info] === Sync Products dimulai ===
+[2026-06-24 06:34:26] [warning] Rate limited, retrying in 30s...
+[2026-06-24 06:34:56] [warning] Channel TIKTOK_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:34:56] [warning] Rate limited, retrying in 30s...
+[2026-06-24 06:35:26] [warning] Channel TOKOPEDIA_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:35:26] [warning] Rate limited, retrying in 30s...
+[2026-06-24 06:35:56] [warning] Channel SHOPEE_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:35:56] [warning] Rate limited, retrying in 30s...
+[2026-06-24 06:36:26] [warning] Channel LAZADA_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 06:36:26] [info] === Sync Products selesai (0 produk) ===
+[2026-06-24 07:05:59] [info] === Sync Products dimulai ===
+[2026-06-24 07:05:59] [warning] Rate limited, retrying in 30s...
+[2026-06-24 07:06:29] [warning] Channel TIKTOK_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:06:29] [warning] Rate limited, retrying in 30s...
+[2026-06-24 07:06:59] [warning] Channel TOKOPEDIA_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:06:59] [warning] Rate limited, retrying in 30s...
+[2026-06-24 07:07:29] [warning] Channel SHOPEE_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:07:29] [warning] Rate limited, retrying in 30s...
+[2026-06-24 07:07:59] [warning] Channel LAZADA_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 07:07:59] [info] === Sync Products selesai (0 produk) ===
+[2026-06-24 09:02:46] [info] === Sync Products dimulai ===
+[2026-06-24 09:02:46] [warning] Rate limited, retrying in 30s...
+[2026-06-24 09:03:16] [warning] Channel TIKTOK_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:03:16] [warning] Rate limited, retrying in 30s...
+[2026-06-24 09:03:46] [warning] Channel TOKOPEDIA_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:03:46] [warning] Rate limited, retrying in 30s...
+[2026-06-24 09:04:16] [warning] Channel SHOPEE_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:04:16] [warning] Rate limited, retrying in 30s...
+[2026-06-24 09:04:46] [warning] Channel LAZADA_ID halaman 0 gagal setelah retry: HTTP 429: Too many requests, please try again later
+[2026-06-24 09:04:46] [info] === Sync Products selesai (0 produk) ===
+[2026-06-24 09:56:58] [info] === Sync Products dimulai ===
+[2026-06-24 09:57:44] [info] === Sync Products selesai (0 produk) ===
+[2026-06-24 09:58:36] [info] === Sync Products dimulai ===
+[2026-06-24 09:58:41] [info] Channel TOKOPEDIA_ID halaman 0 - 0 products (selesai)
+[2026-06-24 09:58:47] [info] Channel SHOPEE_ID halaman 0 - 0 products (selesai)
+[2026-06-24 09:58:52] [info] Channel LAZADA_ID halaman 0 - 0 products (selesai)
+[2026-06-24 09:58:52] [info] === Sync Products selesai (1 produk) ===
+[2026-06-24 09:59:20] [info] === Sync Products dimulai ===
+[2026-06-24 09:59:28] [info] Channel TOKOPEDIA_ID halaman 0 - 0 products (selesai)
+[2026-06-24 09:59:36] [info] Channel SHOPEE_ID halaman 0 - 0 products (selesai)
+[2026-06-24 09:59:50] [info] Channel LAZADA_ID halaman 0 - 0 products (selesai)
+[2026-06-24 09:59:50] [info] === Sync Products selesai (1 produk) ===
+[2026-06-24 10:11:21] [info] === Sync Products dimulai ===
+[2026-06-24 10:11:21] [warning] Channel TIKTOK_ID halaman 0 - Rate limited, retrying in 5s...
+[2026-06-24 10:11:26] [warning] Channel TIKTOK_ID halaman 0 - Rate limited, retrying in 10s...
+[2026-06-24 10:11:36] [warning] Channel TIKTOK_ID halaman 0 gagal (HTTP 429)
+[2026-06-24 10:11:39] [warning] Channel TOKOPEDIA_ID halaman 0 - Rate limited, retrying in 5s...
+[2026-06-24 10:11:44] [warning] Channel TOKOPEDIA_ID halaman 0 - Rate limited, retrying in 10s...
+[2026-06-24 10:11:54] [warning] Channel TOKOPEDIA_ID halaman 0 gagal (HTTP 429)
+[2026-06-24 10:11:57] [warning] Channel SHOPEE_ID halaman 0 - Rate limited, retrying in 5s...
+[2026-06-24 10:12:02] [info] Channel SHOPEE_ID halaman 0 - 0 products (selesai)
+[2026-06-24 10:12:06] [info] Channel LAZADA_ID halaman 0 - 0 products (selesai)
+[2026-06-24 10:12:06] [info] === Sync Products selesai (0 produk) ===
+[2026-06-24 10:46:22] [info] === Sync Products dimulai ===
+[2026-06-24 10:46:40] [info] Channel TOKOPEDIA_ID page 0 - 0 products (selesai)
+[2026-06-24 10:46:52] [info] Channel SHOPEE_ID page 0 - 0 products (selesai)
+[2026-06-24 10:47:00] [info] Channel LAZADA_ID page 0 - 0 products (selesai)
+[2026-06-24 10:47:00] [info] === Sync Products selesai (1 produk) ===
+[2026-06-24 10:48:27] [info] === Sync Products dimulai ===
+[2026-06-24 10:48:33] [info] Channel TOKOPEDIA_ID page 0 - 0 products (selesai)
+[2026-06-24 10:48:41] [info] Channel SHOPEE_ID page 0 - 0 products (selesai)
+[2026-06-24 10:48:49] [info] Channel LAZADA_ID page 0 - 0 products (selesai)
+[2026-06-24 10:48:49] [info] === Sync Products selesai (1 produk) ===
+[2026-06-24 10:49:37] [info] === Sync Products dimulai ===
+[2026-06-24 10:49:56] [info] Channel TOKOPEDIA_ID page 0 - 0 products (selesai)
+[2026-06-24 10:50:04] [info] Channel SHOPEE_ID page 0 - 0 products (selesai)
+[2026-06-24 10:50:17] [info] Channel LAZADA_ID page 0 - 0 products (selesai)
+[2026-06-24 10:50:17] [info] === Sync Products selesai (1 produk) ===

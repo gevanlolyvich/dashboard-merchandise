@@ -1,0 +1,21 @@
+[2026-06-23 09:38:40] [info] === Sync Orders dimulai ===
+[2026-06-23 09:38:40] [info] Mengambil data summary dari /orders/count...
+[2026-06-23 09:38:45] [info] Summary berhasil disimpan
+[2026-06-23 09:38:51] [info] Total halaman: 154, Total order: 154
+[2026-06-23 09:40:13] [info] Progress: halaman 10/154 | Inserted: 7 | Updated: 993
+[2026-06-23 09:41:31] [info] Progress: halaman 20/154 | Inserted: 7 | Updated: 1993
+[2026-06-23 09:42:39] [info] Progress: halaman 30/154 | Inserted: 7 | Updated: 2993
+[2026-06-23 09:43:06] [info] Progress: halaman 40/154 | Inserted: 7 | Updated: 3993
+[2026-06-23 09:43:43] [info] Progress: halaman 50/154 | Inserted: 7 | Updated: 4993
+[2026-06-23 09:45:14] [info] Progress: halaman 60/154 | Inserted: 7 | Updated: 5993
+[2026-06-23 09:46:26] [info] Progress: halaman 70/154 | Inserted: 8 | Updated: 6992
+[2026-06-23 09:48:16] [info] Progress: halaman 80/154 | Inserted: 8 | Updated: 7992
+[2026-06-23 09:49:58] [info] Progress: halaman 90/154 | Inserted: 8 | Updated: 8992
+[2026-06-23 09:50:30] [info] Progress: halaman 100/154 | Inserted: 8 | Updated: 9992
+[2026-06-23 09:51:17] [info] Progress: halaman 110/154 | Inserted: 8 | Updated: 10992
+[2026-06-23 09:52:46] [info] Progress: halaman 120/154 | Inserted: 8 | Updated: 11992
+[2026-06-23 09:53:42] [info] Progress: halaman 130/154 | Inserted: 8 | Updated: 12992
+[2026-06-23 09:55:23] [info] Progress: halaman 140/154 | Inserted: 8 | Updated: 13992
+[2026-06-23 09:56:28] [info] Progress: halaman 150/154 | Inserted: 8 | Updated: 14992
+[2026-06-23 09:56:51] [info] Progress: halaman 154/154 | Inserted: 8 | Updated: 15392
+[2026-06-23 09:56:51] [info] === Sync Orders selesai ===
