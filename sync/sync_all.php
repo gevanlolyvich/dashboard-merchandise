@@ -118,6 +118,37 @@ function migrateSyncTables(PDO $db): void
         $db->exec("ALTER TABLE sync_products ADD UNIQUE INDEX uk_product_code (product_code)");
     }
 
+    $db->exec("CREATE TABLE IF NOT EXISTS sync_customers (
+        id VARCHAR(50) NOT NULL,
+        name VARCHAR(255) DEFAULT NULL,
+        calling_code VARCHAR(10) DEFAULT NULL,
+        mobile VARCHAR(50) DEFAULT NULL,
+        email VARCHAR(255) DEFAULT NULL,
+        merchant_id VARCHAR(50) DEFAULT NULL,
+        gender VARCHAR(10) DEFAULT NULL,
+        birth_date DATE DEFAULT NULL,
+        country VARCHAR(10) DEFAULT NULL,
+        province VARCHAR(100) DEFAULT NULL,
+        city VARCHAR(100) DEFAULT NULL,
+        district VARCHAR(100) DEFAULT NULL,
+        full_area TEXT DEFAULT NULL,
+        create_datetime DATETIME DEFAULT NULL,
+        update_datetime DATETIME DEFAULT NULL,
+        total_spend_currency VARCHAR(10) DEFAULT NULL,
+        total_spend DECIMAL(15,2) DEFAULT 0.00,
+        total_order INT DEFAULT 0,
+        customer_group_id INT DEFAULT NULL,
+        customer_group_name VARCHAR(100) DEFAULT NULL,
+        creator VARCHAR(255) DEFAULT NULL,
+        black_status INT DEFAULT 0,
+        raw_json LONGTEXT DEFAULT NULL,
+        first_synced_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        last_synced_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (id),
+        INDEX idx_mobile (mobile),
+        INDEX idx_group_name (customer_group_name)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
     $db->exec("CREATE TABLE IF NOT EXISTS sync_log (
         id INT AUTO_INCREMENT PRIMARY KEY,
         sync_type VARCHAR(50) NOT NULL,
@@ -181,7 +212,7 @@ try {
     echo "  ✓ Orders selesai (inserted: {$ordersStats['orders_inserted']}, updated: {$ordersStats['orders_updated']}, pages: {$ordersStats['pages_fetched']})" . PHP_EOL;
 
     // ===== 2. Sync Products =====
-    echo PHP_EOL . ">>> [2/2] Sync Products..." . PHP_EOL;
+    echo PHP_EOL . ">>> [2/3] Sync Products..." . PHP_EOL;
     logMessage('Memulai Sync Products...', 'info');
     require_once __DIR__ . '/sync_products.php';
     $syncProducts = new SyncProducts();
@@ -192,6 +223,19 @@ try {
     if ($productsStats['error_message'])
         $hasError = true;
     echo "  ✓ Products selesai (inserted: {$productsStats['products_inserted']}, updated: {$productsStats['products_updated']})" . PHP_EOL;
+
+    // ===== 3. Sync Customers =====
+    echo PHP_EOL . ">>> [3/3] Sync Customers..." . PHP_EOL;
+    logMessage('Memulai Sync Customers...', 'info');
+    require_once __DIR__ . '/sync_customers.php';
+    $syncCustomers = new SyncCustomers();
+    $customersStats = $syncCustomers->run();
+    $totalInserted += $customersStats['customers_inserted'];
+    $totalUpdated += $customersStats['customers_updated'];
+    $totalFailed += $customersStats['customers_failed'];
+    if ($customersStats['error_message'])
+        $hasError = true;
+    echo "  ✓ Customers selesai (inserted: {$customersStats['customers_inserted']}, updated: {$customersStats['customers_updated']}, pages: {$customersStats['pages_fetched']})" . PHP_EOL;
 
     // ===== Update sync log =====
     $status = $hasError ? 'failed' : 'success';

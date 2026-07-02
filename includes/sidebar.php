@@ -83,10 +83,7 @@ function navIcon($type)
             <span class="nav-icon"><?= navIcon('marketplace') ?></span>
             <span>Marketplace</span>
         </a>
-        <a href="<?= BASE_URL ?>/pos" class="nav-item <?= $currentPage == 'pos' ? 'active' : '' ?>">
-            <span class="nav-icon"><?= navIcon('pos') ?></span>
-            <span>POS</span>
-        </a>
+
         <!--
         <a href="<?= BASE_URL ?>/sales-opd" class="nav-item <?= $currentPage == 'sales-opd' ? 'active' : '' ?>">
             <span class="nav-icon"><?= navIcon('opd') ?></span>

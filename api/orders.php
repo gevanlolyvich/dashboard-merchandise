@@ -2,7 +2,7 @@
 /**
  * api/orders.php — Endpoint Data Order dari Database Lokal
  *
- * Menggantikan peran ginee-proxy.php dengan membaca data dari
+ * Membaca data dari
  * tabel sync_orders yang sudah diisi oleh sistem sinkronisasi.
  *
  * Endpoint:
